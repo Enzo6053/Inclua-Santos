@@ -65,7 +65,8 @@ jobs:
         working-directory: android
         run: |
           echo "::warning::Os segredos da chave de upload ainda não foram cadastrados. Gerando só um APK de teste (debug), que não serve para a Play."
-          ./gradlew --no-daemon assembleDebug
+          # a versão final também é compilada (sem assinatura) para os erros aparecerem antes da chave
+          ./gradlew --no-daemon assembleDebug assembleRelease bundleRelease
           mkdir -p ../saida
           cp app/build/outputs/apk/debug/app-debug.apk "../saida/inclua-santos-$VERSION_NAME-debug.apk"
 
@@ -74,7 +75,7 @@ jobs:
         run: |
           "$ANDROID_HOME/build-tools/36.0.0/apksigner" verify --print-certs "saida/inclua-santos-$VERSION_NAME.apk" | grep -E "Signer #1 certificate (DN|SHA-256)"
 
-      - uses: actions/upload-artifact@v5
+      - uses: actions/upload-artifact@v6
         with:
           name: inclua-santos-${{ env.VERSION_NAME }}
           path: saida/*
