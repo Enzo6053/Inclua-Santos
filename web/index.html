@@ -1,0 +1,1224 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://wfjssbmezfjyvngfvfmu.supabase.co wss://wfjssbmezfjyvngfvfmu.supabase.co; object-src 'none'; frame-src 'none'; base-uri 'self'; form-action 'self'">
+<title>Inclua Santos</title>
+<meta name="description" content="App gratuito que reúne atividades, ONGs, vagas de emprego, saúde, alimentação, cursos e conexões para pessoas com deficiência em Santos e região.">
+<meta name="theme-color" content="#0E6E64">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+<link rel="icon" href="icons/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="stylesheet" href="css/app.css">
+<script src="js/inicio.js"></script>
+</head>
+<body>
+<div class="stage">
+  <div class="intro">
+    <span class="eyebrow">Santos e região</span>
+    <h1>Inclua <em>Santos</em>. O app que conecta a pessoa com deficiência a tudo o que ela precisa</h1>
+    <p>Sete frentes de apoio em um só lugar, feitas para Santos e região: atividades, ONGs, emprego, saúde, alimentação, educação e relacionamentos — com acessibilidade como princípio de design, não como recurso extra.</p>
+    <ul class="feature-list">
+      <li><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>7 categorias navegáveis, com vagas de emprego reais atualizadas toda semana</li>
+      <li><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Favoritos que ficam salvos e comunidade com denúncia, bloqueio e moderação</li>
+      <li><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Entrada sem senha: um código chega no seu e-mail</li>
+      <li><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Botão de acessibilidade: texto grande e alto contraste funcionam de verdade</li>
+      <li><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Cores por categoria, alvos de toque generosos e foco visível no teclado</li>
+    </ul>
+    <p class="hint">Clique nos cartões do celular ao lado para navegar entre as telas. O botão <strong>Aa</strong> no canto abre os recursos de acessibilidade. No celular, o app ocupa a tela inteira.</p>
+    <p class="links-legais"><a href="privacidade.html">Política de privacidade</a> · <a href="excluir-conta.html">Excluir conta</a></p>
+  </div>
+
+  <div class="phone">
+    <div class="screen-wrap" id="app">
+      <div class="statusbar">
+        <span id="hora-status">9:41</span>
+        <span class="icons">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M2 17h3v4H2zM7 13h3v8H7zM12 9h3v12h-3zM17 5h3v16h-3z"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.5C8.9 8.8 15.1 8.8 19 12.5M8.5 15.5c2-1.9 5-1.9 7 0M12 18.5h.01"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><rect x="2" y="7" width="17" height="10" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/><rect x="4" y="9" width="11" height="6" rx="1"/><path d="M21 10v4a2 2 0 0 0 0-4z"/></svg>
+        </span>
+      </div>
+
+      <div class="screens">
+
+        <!-- HOME -->
+        <section class="screen active" id="scr-home" aria-label="Tela inicial">
+          <div class="home-head">
+            <div>
+              <p class="hello">Boa tarde 👋</p>
+              <p class="name" id="home-name">Olá!</p>
+            </div>
+            <button class="avatar" id="home-initial" aria-label="Abrir meu perfil" data-go="scr-perfil">V</button>
+          </div>
+
+          <div class="search" role="search">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+            Buscar serviços, vagas, atividades…
+          </div>
+
+          <div class="banner">
+            <strong>Outubro no Inclua Santos · Vaga nova e Cinema Azul</strong>
+            <span>A lista de Emprego foi conferida em 12/10 e ganhou uma vaga exclusiva PCD de Auxiliar Administrativo pela Maxi Recursos Humanos. Na tela Namoro e conexões, o Cinema Azul tem sessão adaptada no Cine Roxy em 27/10.</span>
+          </div>
+
+          <p class="section-label">O que você procura hoje?</p>
+          <div class="grid">
+            <button class="cat" data-go="scr-ativ">
+              <span class="ic" style="background:var(--c-ativ-bg); color:var(--c-ativ)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="17" cy="5" r="2.4"/><path d="M4 21a7 7 0 0 1 9-9"/><circle cx="9" cy="17" r="4.6"/><path d="M11 9l4 1 3 4h3"/></svg>
+              </span>
+              <h3>Atividades</h3>
+              <p>Esporte adaptado, cultura e lazer perto de você</p>
+            </button>
+            <button class="cat" data-go="scr-ong">
+              <span class="ic" style="background:var(--c-ong-bg); color:var(--c-ong)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7.5-4.6-9.5-9A5.2 5.2 0 0 1 12 7a5.2 5.2 0 0 1 9.5 5c-2 4.4-9.5 9-9.5 9z"/></svg>
+              </span>
+              <h3>ONGs e apoio</h3>
+              <p>Instituições e redes de apoio à pessoa com deficiência</p>
+            </button>
+            <button class="cat" data-go="scr-emp">
+              <span class="ic" style="background:var(--c-emp-bg); color:var(--c-emp)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2.5"/><path d="M8 7V5.5A2.5 2.5 0 0 1 10.5 3h3A2.5 2.5 0 0 1 16 5.5V7M3 12h18"/></svg>
+              </span>
+              <h3>Emprego</h3>
+              <p>Vagas afirmativas e empresas inclusivas</p>
+            </button>
+            <button class="cat" data-go="scr-sau">
+              <span class="ic" style="background:var(--c-sau-bg); color:var(--c-sau)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l2-5 3 9 2-4h7"/></svg>
+              </span>
+              <h3>Saúde</h3>
+              <p>Consultas, terapias e reabilitação</p>
+            </button>
+            <button class="cat" data-go="scr-ali">
+              <span class="ic" style="background:var(--c-ali-bg); color:var(--c-ali)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20c-5 0-8-3-8-8 0-3 2-6 5-6 2 0 3 1 3 1s1-1 3-1c3 0 5 3 5 6 0 5-3 8-8 8z"/><path d="M12 7c0-2 1-3.5 3-4"/></svg>
+              </span>
+              <h3>Alimentação</h3>
+              <p>Nutrição, restaurantes acessíveis e cestas</p>
+            </button>
+            <button class="cat" data-go="scr-edu">
+              <span class="ic" style="background:var(--c-edu-bg); color:var(--c-edu)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 4 10 5-10 5L2 9l10-5z"/><path d="M6 11.5V16c0 1.5 2.7 3 6 3s6-1.5 6-3v-4.5"/><path d="M22 9v5"/></svg>
+              </span>
+              <h3>Faculdades e cursos</h3>
+              <p>Formação com acessibilidade e cotas</p>
+            </button>
+            <button class="cat wide" data-go="scr-nam">
+              <span class="ic" style="background:var(--c-nam-bg); color:var(--c-nam)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7.5-4.6-9.5-9A5.2 5.2 0 0 1 12 7a5.2 5.2 0 0 1 9.5 5c-2 4.4-9.5 9-9.5 9z"/><path d="m9 12 2 2 4-4"/></svg>
+              </span>
+              <span class="txt">
+                <h3>Namoro e conexões</h3>
+                <p>Um espaço seguro e respeitoso para conhecer pessoas</p>
+              </span>
+              <span class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg></span>
+            </button>
+          </div>
+        </section>
+
+        <!-- ATIVIDADES -->
+        <section class="screen" id="scr-ativ" aria-label="Atividades">
+          <header class="detail-head" style="background:linear-gradient(130deg,var(--c-ativ),#0A544C)">
+            <div class="toprow">
+              <button class="back" data-go="scr-home" aria-label="Voltar">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg>
+              </button>
+              <h2>Atividades</h2>
+            </div>
+            <p>Esporte, cultura e lazer adaptados em Santos, com local acessível confirmado.</p>
+            <div class="chips"><span class="chip">Praia</span><span class="chip">Gratuitas</span><span class="chip">Esporte</span><span class="chip">Cultura</span></div>
+          </header>
+
+          <p class="section-label">Atividades disponíveis</p>
+          <div class="grid">
+            <a data-fav data-fav-id="ativ-surf-prefeitura" class="cat" href="https://www.santos.sp.gov.br/?q=portal/escola-de-surfe-adaptado" target="_blank" rel="noopener">
+              <span class="ic" style="background:var(--c-ativ-bg); color:var(--c-ativ)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 4C12 6 6.5 11.5 4 20 12 18 17.5 12.5 20 4z"/><path d="m8 16 8-8"/></svg>
+              </span>
+              <h3>Surf Adaptado · Prefeitura de Santos</h3>
+              <p>Aulas gratuitas na praia com equipe de apoio e pranchas adaptadas</p>
+            </a>
+            <a data-fav data-fav-id="ativ-surf-unifesp" class="cat" href="https://unifesp.br/campus/san7/todos-informes/3560-projeto-surfe-adaptado-esta-selecionando-bolsistas" target="_blank" rel="noopener">
+              <span class="ic" style="background:var(--c-ativ-bg); color:var(--c-ativ)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 17c2-2.5 4-2.5 6 0s4 2.5 6 0 4-2.5 6 0"/><path d="M13 12c3.5-1 6-3.5 7-8-4.5 1-7 3.5-8 7"/><path d="m9 15 4-4"/></svg>
+              </span>
+              <h3>Surf Adaptado · Unifesp</h3>
+              <p>Projeto de extensão universitária com acompanhamento de profissionais</p>
+            </a>
+            <a data-fav data-fav-id="ativ-teatro-tamtam" class="cat" href="https://tamtam.art.br/radio-tamtam/" target="_blank" rel="noopener">
+              <span class="ic" style="background:var(--c-ativ-bg); color:var(--c-ativ)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h9v7.5A4.5 4.5 0 0 1 8.5 16 4.5 4.5 0 0 1 4 11.5V4z"/><path d="M11 8h9v7.5A4.5 4.5 0 0 1 15.5 20 4.5 4.5 0 0 1 11 15.5V8z" fill="var(--app-bg)"/><path d="M13.8 12h.01M17.8 12h.01M14.5 16.5c.8.7 2.2.7 3 0"/><path d="M6.2 7.5h.01M10.2 7.5h.01"/></svg>
+              </span>
+              <h3>Teatro TamTam</h3>
+              <p>Oficinas e montagens teatrais inclusivas abertas à comunidade</p>
+            </a>
+            <a data-fav data-fav-id="ativ-musica-tamtam" class="cat" href="https://tamtam.art.br/radio-tamtam/" target="_blank" rel="noopener">
+              <span class="ic" style="background:var(--c-ativ-bg); color:var(--c-ativ)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="16" r="3.6"/><circle cx="17" cy="16" r="3.6"/><path d="M7 12.4V5l10-1.6V12"/></svg>
+              </span>
+              <h3>Musicalização TamTam</h3>
+              <p>Aulas de música e percussão com instrumentos adaptados</p>
+            </a>
+          </div>
+        </section>
+
+        <!-- ONG -->
+        <section class="screen" id="scr-ong" aria-label="ONGs e apoio">
+          <header class="detail-head" style="background:linear-gradient(130deg,var(--c-ong),#4B3391)">
+            <div class="toprow">
+              <button class="back" data-go="scr-home" aria-label="Voltar">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg>
+              </button>
+              <h2>ONGs e apoio</h2>
+            </div>
+            <p>Instituições e redes de apoio à pessoa com deficiência na sua região.</p>
+            <div class="chips"><span class="chip">Santos e região</span><span class="chip">Acolhimento</span><span class="chip">Voluntariado</span><span class="chip">Doações</span></div>
+          </header>
+
+          <p class="section-label">Instituições</p>
+          <div class="grid">
+            <a data-fav data-fav-id="ong-tamtam" class="cat" href="https://tamtam.art.br/radio-tamtam/" target="_blank" rel="noopener">
+              <span class="ic" style="background:var(--c-ong-bg); color:var(--c-ong)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="16" r="3.6"/><circle cx="17" cy="16" r="3.6"/><path d="M7 12.4V5l10-1.6V12"/></svg>
+              </span>
+              <h3>TamTam</h3>
+              <p>Arte, música e cultura como caminho de inclusão</p>
+            </a>
+            <a data-fav data-fav-id="ong-instituto-autismo" class="cat" href="https://institutoautismobrasil.com.br/" target="_blank" rel="noopener">
+              <span class="ic" style="background:var(--c-ong-bg); color:var(--c-ong)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12c-2-3-4.5-4.5-6.5-3.2s-2 5.1 0 6.4S10 15 12 12zm0 0c2 3 4.5 4.5 6.5 3.2s2-5.1 0-6.4S14 9 12 12z"/></svg>
+              </span>
+              <h3>Instituto Autismo do Brasil</h3>
+              <p>Apoio, orientação e terapias para pessoas autistas e famílias</p>
+            </a>
+            <a data-fav data-fav-id="ong-lar-mocas-cegas" class="cat" href="https://www.lmc.org.br/" target="_blank" rel="noopener">
+              <span class="ic" style="background:var(--c-ong-bg); color:var(--c-ong)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6-10-6-10-6z"/><circle cx="12" cy="12" r="2.6"/></svg>
+              </span>
+              <h3>Lar das Moças Cegas</h3>
+              <p>Reabilitação e autonomia para pessoas com deficiência visual</p>
+            </a>
+            <a data-fav data-fav-id="ong-apae-santos" class="cat" href="https://www.apaesantos.org.br/" target="_blank" rel="noopener">
+              <span class="ic" style="background:var(--c-ong-bg); color:var(--c-ong)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2.4"/><path d="M12 9.6C10.8 7.5 11 4.5 12 3c1 1.5 1.2 4.5 0 6.6zM14.1 10.8c1.4-2 4.1-3.2 5.9-3.1-.6 1.7-2.9 3.7-5.3 4zM14.1 13.2c2.4.3 4.7 2.3 5.3 4-1.8.1-4.5-1.1-5.9-3.1zM12 14.4c1.2 2.1 1 5.1 0 6.6-1-1.5-1.2-4.5 0-6.6zM9.9 13.2c-1.4 2-4.1 3.2-5.9 3.1.6-1.7 2.9-3.7 5.3-4zM9.9 10.8c-2.4-.3-4.7-2.3-5.3-4 1.8-.1 4.5 1.1 5.9 3.1z"/></svg>
+              </span>
+              <h3>Apae Santos</h3>
+              <p>Atendimento à pessoa com deficiência intelectual e múltipla</p>
+            </a>
+          </div>
+
+          <p class="section-label">Como ajudar</p>
+          <div class="items" style="margin-top:0">
+            <button class="item" type="button" data-go="scr-ajudar">
+              <span class="ic" style="background:var(--c-ong-bg); color:var(--c-ong)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7.5-4.6-9.5-9A5.2 5.2 0 0 1 12 7a5.2 5.2 0 0 1 9.5 5c-2 4.4-9.5 9-9.5 9z"/></svg></span>
+              <span>
+                <h4>Seja voluntário ou doe</h4>
+                <p>As quatro instituições recebem voluntários e doações — escolha uma e saiba como participar</p>
+                <span class="tag" style="background:var(--c-ong-bg); color:var(--c-ong)">Participe</span>
+              </span>
+            </button>
+          </div>
+        </section>
+
+        <!-- SEJA VOLUNTÁRIO OU DOE -->
+        <section class="screen" id="scr-ajudar" aria-label="Seja voluntário ou doe">
+          <header class="detail-head" style="background:linear-gradient(130deg,var(--c-ong),#4B3391)">
+            <div class="toprow">
+              <button class="back" type="button" data-go="scr-ong" aria-label="Voltar">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg>
+              </button>
+              <h2>Seja voluntário ou doe</h2>
+            </div>
+            <p>Escolha uma instituição e como quer ajudar. Doações vão direto para a instituição.</p>
+            <div class="chips"><span class="chip">Doação no canal oficial</span><span class="chip">Inscrição em 1 minuto</span></div>
+          </header>
+
+          <p class="section-label" id="ong-rotulo">1. Escolha a instituição</p>
+          <div class="ong-opcoes" role="radiogroup" aria-labelledby="ong-rotulo">
+            <label class="ong-opcao"><input type="radio" name="ong" value="tamtam"> TamTam</label>
+            <label class="ong-opcao"><input type="radio" name="ong" value="autismo"> Instituto Autismo do Brasil</label>
+            <label class="ong-opcao"><input type="radio" name="ong" value="lmc"> Lar das Moças Cegas</label>
+            <label class="ong-opcao"><input type="radio" name="ong" value="apae"> Apae Santos</label>
+          </div>
+
+          <p class="section-label">2. Como você quer ajudar?</p>
+          <div class="tabs" role="tablist" aria-label="Forma de ajudar" style="margin-top:0">
+            <button class="tab" type="button" role="tab" id="tab-doar" aria-selected="true" aria-controls="panel-doar">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.5-9A5.2 5.2 0 0 1 12 7a5.2 5.2 0 0 1 9.5 5c-2 4.4-9.5 9-9.5 9z"/></svg>
+              Doar
+            </button>
+            <button class="tab" type="button" role="tab" id="tab-vol" aria-selected="false" aria-controls="panel-vol">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 11V6.5a1.5 1.5 0 0 1 3 0V11M11 10V4.5a1.5 1.5 0 0 1 3 0V10M14 10V5.5a1.5 1.5 0 0 1 3 0V12"/><path d="M17 9.5a1.5 1.5 0 0 1 3 0V14a7 7 0 0 1-7 7h-1a6 6 0 0 1-5-2.7l-2.4-3.7a1.6 1.6 0 0 1 2.6-1.9L8 14"/></svg>
+              Ser voluntário
+            </button>
+          </div>
+
+          <div class="ajudar-painel" id="panel-doar" role="tabpanel" aria-labelledby="tab-doar">
+            <p class="hint-sm" id="doar-escolha">Escolha uma instituição acima para ver como doar.</p>
+            <div class="items" style="margin-top:0" data-doar="tamtam" hidden>
+              <a class="item" href="https://tamtam.art.br/" target="_blank" rel="noopener">
+                <span class="ic" style="background:var(--c-ong-bg); color:var(--c-ong)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg></span>
+                <span><h4>Apoie pelo site oficial do TamTam</h4><p>Veja no site do Projeto TamTam como doar ou apoiar a associação · Fonte: tamtam.art.br</p></span>
+                <span class="ext" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9"/><path d="M19 13v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></span>
+              </a>
+              <a class="item" href="https://tamtam.art.br/transparencia/" target="_blank" rel="noopener">
+                <span class="ic" style="background:var(--c-ong-bg); color:var(--c-ong)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4M9 12h6M9 16h6"/></svg></span>
+                <span><h4>Prestação de contas</h4><p>A página de transparência mostra os projetos e as verbas da associação · Fonte: tamtam.art.br</p></span>
+                <span class="ext" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9"/><path d="M19 13v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></span>
+              </a>
+            </div>
+            <div class="items" style="margin-top:0" data-doar="autismo" hidden>
+              <a class="item" href="https://institutoautismobrasil.com.br/" target="_blank" rel="noopener">
+                <span class="ic" style="background:var(--c-ong-bg); color:var(--c-ong)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg></span>
+                <span><h4>Doar pelo site oficial</h4><p>O site do instituto tem uma opção de doação e de apoio de empresas · Fonte: institutoautismobrasil.com.br</p></span>
+                <span class="ext" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9"/><path d="M19 13v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></span>
+              </a>
+            </div>
+            <div class="items" style="margin-top:0" data-doar="lmc" hidden>
+              <a class="item" href="https://www.lmc.org.br/" target="_blank" rel="noopener">
+                <span class="ic" style="background:var(--c-ong-bg); color:var(--c-ong)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3zM20 14v.01M14 20h.01M17 20h4v-3"/></svg></span>
+                <span><h4>PIX pelo site oficial do Lar</h4><p>No site, abra a aba "Quero doar" e leia o QR Code com o app do seu banco · Fonte: BoqNews</p></span>
+                <span class="ext" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9"/><path d="M19 13v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></span>
+              </a>
+              <a class="item" href="tel:+551332262760">
+                <span class="ic" style="background:var(--c-ong-bg); color:var(--c-ong)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7.5 12 3l9 4.5v9L12 21l-9-4.5z"/><path d="M3 7.5 12 12l9-4.5M12 12v9"/></svg></span>
+                <span><h4>Doe objetos para o Bazar do Lar</h4><p>Itens em bom estado: Rua Carvalho de Mendonça, 233, Vila Mathias, de segunda a sexta, das 8h30 às 17h30. Para agendar a retirada, ligue (13) 3226-2760 · Fonte: imprensa de Santos</p></span>
+              </a>
+            </div>
+            <div class="items" style="margin-top:0" data-doar="apae" hidden>
+              <a class="item" href="https://www.apaesantos.org.br/" target="_blank" rel="noopener">
+                <span class="ic" style="background:var(--c-ong-bg); color:var(--c-ong)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg></span>
+                <span><h4>Como doar: site oficial da Apae Santos</h4><p>Veja no site como doar, ou pergunte pelo e-mail apae@apaesantos.org.br · Fonte: apaesantos.org.br</p></span>
+                <span class="ext" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9"/><path d="M19 13v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></span>
+              </a>
+            </div>
+            <div class="items" style="margin-top:0" id="doar-stripe" hidden></div>
+            <p class="hint-sm" id="doar-sem-stripe" hidden>Cartão de crédito pelo app: o botão aparece aqui quando a instituição enviar o link de pagamento dela (Stripe).</p>
+            <p class="notice">O dinheiro vai direto para a instituição. O Inclua Santos não recebe doações nem vê dados do seu cartão. Desconfie de chave PIX enviada por mensagem: use só a do site oficial.</p>
+            <p class="hint-sm">Formas de doar conferidas em 18/10/2026 em fontes públicas. Confirme no site da instituição antes de doar.</p>
+          </div>
+
+          <div class="ajudar-painel" id="panel-vol" role="tabpanel" aria-labelledby="tab-vol" hidden>
+            <p class="hint-sm" id="vol-escolha">Escolha uma instituição acima para se inscrever.</p>
+            <p class="notice" id="vol-indisponivel" hidden>Para se inscrever, <button class="btn-inline" type="button" data-entrar="voluntario">entre com seu e-mail</button>. Assim a equipe do app guarda sua inscrição e você acompanha o andamento aqui.</p>
+            <form class="vol-form" id="vol-form" novalidate hidden>
+              <p class="notice" data-vol-nota="lmc" hidden>No Lar das Moças Cegas, o voluntariado começa com uma visita monitorada, às quintas, às 15h, e uma conversa com o Serviço Social. Há vagas em esportes, música, dança, artesanato, leitura, eventos e bazar · Fonte: Juicy Santos</p>
+              <div class="field">
+                <label for="vol-nome">Seu nome</label>
+                <input id="vol-nome" type="text" maxlength="60" autocomplete="name" required>
+              </div>
+              <div class="field">
+                <label for="vol-contato">Como a instituição fala com você?</label>
+                <input id="vol-contato" type="text" maxlength="80" autocomplete="tel" placeholder="WhatsApp, telefone ou e-mail" required>
+              </div>
+              <div class="field" role="group" aria-labelledby="vol-quando-rotulo">
+                <p class="rotulo" id="vol-quando-rotulo">Quando você pode ajudar?</p>
+                <div class="opcoes-check" id="vol-quando">
+                  <label class="check-chip"><input type="checkbox" value="semana-manha"> Dias de semana, de manhã</label>
+                  <label class="check-chip"><input type="checkbox" value="semana-tarde"> Dias de semana, à tarde</label>
+                  <label class="check-chip"><input type="checkbox" value="semana-noite"> Dias de semana, à noite</label>
+                  <label class="check-chip"><input type="checkbox" value="fim-de-semana"> Fins de semana</label>
+                </div>
+              </div>
+              <div class="field" role="group" aria-labelledby="vol-como-rotulo">
+                <p class="rotulo" id="vol-como-rotulo">Como você quer ajudar?</p>
+                <div class="opcoes-check" id="vol-como">
+                  <label class="check-chip"><input type="checkbox" value="atividades"> Atividades com as pessoas atendidas</label>
+                  <label class="check-chip"><input type="checkbox" value="eventos"> Eventos e bazar</label>
+                  <label class="check-chip"><input type="checkbox" value="divulgacao"> Divulgação e redes sociais</label>
+                  <label class="check-chip"><input type="checkbox" value="administrativo"> Apoio administrativo</label>
+                  <label class="check-chip"><input type="checkbox" value="outra"> Outra forma</label>
+                </div>
+              </div>
+              <div class="field">
+                <label for="vol-acess">Precisa de algum recurso de acessibilidade? (opcional)</label>
+                <input id="vol-acess" type="text" maxlength="160" placeholder="Ex.: intérprete de Libras, local sem escada">
+              </div>
+              <div class="field">
+                <label for="vol-msg">Quer contar mais alguma coisa? (opcional)</label>
+                <textarea id="vol-msg" rows="3" maxlength="400"></textarea>
+              </div>
+              <p class="hint-sm">Ao enviar, seu nome, seu contato e suas respostas ficam com a equipe do Inclua Santos e vão para <strong id="vol-ong-nome">a instituição escolhida</strong>. Você apaga tudo em Perfil &gt; Apagar meus dados.</p>
+              <p class="vol-erro" id="vol-erro" role="alert" hidden></p>
+              <button class="fav-cta" type="submit" id="vol-enviar" style="margin-top:0; background:#5B3FB0; box-shadow:0 8px 20px rgba(75,51,145,.25)">Enviar inscrição</button>
+            </form>
+            <div class="sucesso" id="vol-ok" tabindex="-1" hidden>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m7.5 12.5 3 3 6-6.5"/></svg>
+              <h3>Inscrição enviada!</h3>
+              <p id="vol-ok-texto"></p>
+              <button class="btn-line sec" type="button" id="vol-nova">Fazer outra inscrição</button>
+            </div>
+            <div id="vol-minhas-bloco" hidden>
+              <p class="section-label">Suas inscrições</p>
+              <div class="items" style="margin-top:0" id="vol-minhas"></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- EMPREGO -->
+        <section class="screen" id="scr-emp" aria-label="Emprego">
+          <header class="detail-head" style="background:linear-gradient(130deg,var(--c-emp),#154478)">
+            <div class="toprow">
+              <button class="back" data-go="scr-home" aria-label="Voltar">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg>
+              </button>
+              <h2>Emprego</h2>
+            </div>
+            <p>Vagas para PCD em Santos-SP, reunidas dos principais sites de emprego.</p>
+            <div class="chips"><span class="chip">Exclusivas PCD</span><span class="chip">Santos-SP</span><span class="chip">Revisado toda semana</span></div>
+          </header>
+
+          <p class="section-label">Vagas abertas · Santos-SP</p>
+          <!-- ATUALIZACAO SEMANAL: troque apenas os links de vaga (elementos a.item) daqui de
+               baixo, mantendo o mesmo padrao interno (span.ic + span com h4/p/span.tag + span.ext).
+               Nao acrescente wrappers nem atributos novos: a estrela de favoritar e injetada em
+               tempo de execucao pelo js/app.js, que reconhece "#lista-vagas a.item"
+               por conta propria. -->
+          <div class="items" style="margin-top:0" id="lista-vagas">
+            <a class="item" href="https://www.bne.com.br/vaga-de-emprego-na-area-administrativo-em-santos-sp/auxiliar-administrativo/6090955" target="_blank" rel="noopener">
+              <span class="ic" style="background:var(--c-emp-bg); color:var(--c-emp)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6M9 13h6M9 17h3"/></svg></span>
+              <span>
+                <h4>Auxiliar Administrativo (Exclusiva PCD) · Maxi Recursos Humanos</h4>
+                <p>Presencial · Santos-SP · Contrato efetivo · Salário a combinar · organização e arquivo de documentos, apoio administrativo e contas a pagar · Fonte: BNE</p>
+                <span class="tag" style="background:var(--c-emp-bg); color:var(--c-emp)">Exclusiva PCD</span>
+              </span>
+              <span class="ext" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9"/><path d="M19 13v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></span>
+            </a>
+            <a class="item" href="https://br.linkedin.com/jobs/view/auxiliar-administrativo-santos-at-della-volpe-transportes-4366071344" target="_blank" rel="noopener">
+              <span class="ic" style="background:var(--c-emp-bg); color:var(--c-emp)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></span>
+              <span>
+                <h4>Auxiliar Administrativo (Exclusiva PCD) · Della Volpe Transportes</h4>
+                <p>Presencial · Santos-SP · VT, VA, cesta básica, assistência médica (90% empresa), PLR, parceria Sest Senat · Fonte: LinkedIn</p>
+                <span class="tag" style="background:var(--c-emp-bg); color:var(--c-emp)">Exclusiva PCD</span>
+              </span>
+              <span class="ext" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9"/><path d="M19 13v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></span>
+            </a>
+            <a class="item" href="https://esrh.selecty.com.br/vaga/1287/vaga-para-auxiliar-administrativo-rh-pcd-em-santos-sp" target="_blank" rel="noopener">
+              <span class="ic" style="background:var(--c-emp-bg); color:var(--c-emp)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7l9-4 9 4-9 4-9-4z"/><path d="M3 7v10l9 4 9-4V7"/><path d="M12 11v10"/></svg></span>
+              <span>
+                <h4>Auxiliar Administrativo RH (PCD) · Selecty</h4>
+                <p>Presencial · Santos-SP · recepção, controle de chaves e apoio administrativo · VR, VA, VT, Gympass · Fonte: Selecty</p>
+                <span class="tag" style="background:var(--c-emp-bg); color:var(--c-emp)">Exclusiva PCD</span>
+              </span>
+              <span class="ext" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9"/><path d="M19 13v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></span>
+            </a>
+            <a class="item" href="https://www.infojobs.com.br/vaga-de-assistente-logistica-pcd-pessoa-deficiencia-santossp-em-sao-paulo__10040420.aspx" target="_blank" rel="noopener">
+              <span class="ic" style="background:var(--c-emp-bg); color:var(--c-emp)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></span>
+              <span>
+                <h4>Assistente de Logística (PCD) · Manpower</h4>
+                <p>Presencial · Santos-SP · Salário R$ 2.500,00 · Assistência médica e odontológica, VT, VR, auxílio-creche · Fonte: Infojobs</p>
+                <span class="tag" style="background:var(--c-emp-bg); color:var(--c-emp)">Exclusiva PCD</span>
+              </span>
+              <span class="ext" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9"/><path d="M19 13v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></span>
+            </a>
+            <a class="item" href="https://www.catho.com.br/vagas/auxiliar-de-laboratorio-pcd-santos-sp/30686255/" target="_blank" rel="noopener">
+              <span class="ic" style="background:var(--c-emp-bg); color:var(--c-emp)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6M9 13h6M9 17h3"/></svg></span>
+              <span>
+                <h4>Auxiliar de Laboratório (PCD) · Manpower</h4>
+                <p>Presencial · Santos-SP · Salário a combinar · Fonte: Catho</p>
+                <span class="tag" style="background:var(--c-emp-bg); color:var(--c-emp)">Vaga afirmativa PCD</span>
+              </span>
+              <span class="ext" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9"/><path d="M19 13v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></span>
+            </a>
+          </div>
+
+          <p class="hint-sm" id="vagas-stamp" data-conferido="2026-10-12" data-oque="Lista de vagas" data-extra="Uma vaga pode encerrar a qualquer momento: se o link não abrir, ela já foi preenchida.">Lista de vagas conferida em 12/10/2026. Uma vaga pode encerrar a qualquer momento: se o link não abrir, ela já foi preenchida.</p>
+
+          <p class="section-label">Vagas de agora</p>
+          <div class="items" style="margin-top:0" id="lista-busca">
+            <a class="item" href="https://www.vagas.com.br/vagas-de-deficientes-em-santos" target="_blank" rel="noopener">
+              <span class="ic" style="background:var(--c-emp-bg); color:var(--c-emp)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span>
+              <span>
+                <h4>Vagas.com · exclusivas PCD em Santos</h4>
+                <p>Lista que o próprio site atualiza sozinha, sempre com o que está aberto hoje</p>
+              </span>
+              <span class="ext" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9"/><path d="M19 13v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></span>
+            </a>
+            <a class="item" href="https://www.pcd.com.br/vagas-para-pcd-em-santos-sp" target="_blank" rel="noopener">
+              <span class="ic" style="background:var(--c-emp-bg); color:var(--c-emp)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span>
+              <span>
+                <h4>PCD Online · vagas em Santos-SP</h4>
+                <p>Portal só de vagas para pessoa com deficiência, atualizado direto pelas empresas</p>
+              </span>
+              <span class="ext" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9"/><path d="M19 13v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></span>
+            </a>
+            <a class="item" href="https://www.infojobs.com.br/vagas-de-emprego-pcd-em-santos,-sp.aspx" target="_blank" rel="noopener">
+              <span class="ic" style="background:var(--c-emp-bg); color:var(--c-emp)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span>
+              <span>
+                <h4>Infojobs · PCD em Santos-SP</h4>
+                <p>Busca com filtro de deficiência já aplicado, incluindo home office</p>
+              </span>
+              <span class="ext" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9"/><path d="M19 13v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></span>
+            </a>
+          </div>
+          <p class="hint-sm">Estes três links nunca envelhecem: eles mostram o que está aberto no momento em que você tocar.</p>
+
+          <p class="section-label">Notícias e direitos</p>
+          <div class="items" style="margin-top:0" id="lista-noticias">
+            <a data-fav data-fav-id="not-mutirao-215-vagas-out-2026" class="item" href="https://www.santos.sp.gov.br/?q=noticia%2Fproximo-mutirao-do-emprego-de-santos-oferece-215-vagas-cartas-para-entrevistas-devem-ser-retiradas-ate-segunda" target="_blank" rel="noopener">
+              <span class="ic" style="background:var(--c-emp-bg); color:var(--c-emp)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/><path d="M8 14h3v3H8z"/></svg></span>
+              <span>
+                <h4>Mutirão do Emprego com 215 vagas na terça (20/10)</h4>
+                <p>A partir das 9h no Resolve Aqui, Rua Amador Bueno, 249, Centro. Antes, retire a carta de encaminhamento no CPET, dentro do Poupatempo, até segunda (19/10), com carteira de trabalho, RG, CPF e comprovante de residência. As vagas são para todos, não só para PCD · Fonte: Prefeitura de Santos</p>
+                <span class="tag" style="background:var(--c-emp-bg); color:var(--c-emp)">20 de outubro</span>
+              </span>
+              <span class="ext" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9"/><path d="M19 13v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></span>
+            </a>
+            <a data-fav data-fav-id="not-pei-sao-vicente" class="item" href="https://www.bs9.com.br/litoral/2026/10/05/sao-vicente-amplia-atendimento-do-polo-de-empregabilidade-inclusiva.html" target="_blank" rel="noopener">
+              <span class="ic" style="background:var(--c-emp-bg); color:var(--c-emp)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span>
+              <span>
+                <h4>Polo de Empregabilidade agora também atende em São Vicente</h4>
+                <p>Em outubro, o Polo de Empregabilidade Inclusiva passou a receber pessoas com deficiência a partir de 16 anos às terças e quintas, na Rua José Bonifácio, 404, 8º andar, sala 81, Centro de São Vicente. Faz entrevista, indica vagas que combinam com o seu perfil e acompanha a adaptação no trabalho. Só com hora marcada pelo WhatsApp (13) 99140-9528 · Fonte: BS9</p>
+                <span class="tag" style="background:var(--c-emp-bg); color:var(--c-emp)">Novidade de outubro</span>
+              </span>
+              <span class="ext" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9"/><path d="M19 13v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></span>
+            </a>
+            <a data-fav data-fav-id="not-pei-santos" class="item" href="https://www.pessoacomdeficiencia.sp.gov.br/pei-baixada-oferece-vagas-para-pessoas-com-deficiencia-conectando-empresas-e-candidatos/" target="_blank" rel="noopener">
+              <span class="ic" style="background:var(--c-emp-bg); color:var(--c-emp)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="9" r="2.6"/><circle cx="16" cy="9" r="2.6"/><path d="M3 19c0-2.8 2.2-5 5-5M21 19c0-2.8-2.2-5-5-5"/></svg></span>
+              <span>
+                <h4>Polo de Empregabilidade Inclusiva · apoio de graça em Santos</h4>
+                <p>Avalia seu perfil, indica cursos e encaminha para vagas em empresas. Funciona no CPET, dentro do Poupatempo, no Centro. O atendimento presencial é com hora marcada: agende pelo WhatsApp (13) 99140-9528 · Fonte: Secretaria estadual dos Direitos da Pessoa com Deficiência</p>
+                <span class="tag" style="background:var(--c-emp-bg); color:var(--c-emp)">Atendimento gratuito</span>
+              </span>
+              <span class="ext" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9"/><path d="M19 13v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></span>
+            </a>
+            <a data-fav data-fav-id="not-meu-emprego-inclusivo" class="item" href="http://empregoinclusivo.sedpcd.sp.gov.br/" target="_blank" rel="noopener">
+              <span class="ic" style="background:var(--c-emp-bg); color:var(--c-emp)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.5 2.6 2.5 15.4 0 18"/><path d="M12 3c-2.5 2.6-2.5 15.4 0 18"/></svg></span>
+              <span>
+                <h4>Cadastre seu currículo sem sair de casa</h4>
+                <p>O programa estadual Meu Emprego Inclusivo atende pessoa com deficiência a partir de 16 anos que more no Estado de São Paulo. Você se cadastra pela internet e um técnico entra em contato. Tenha em mãos o laudo médico ou o comprovante de que começou o diagnóstico · Fonte: Governo do Estado de São Paulo</p>
+                <span class="tag" style="background:var(--c-emp-bg); color:var(--c-emp)">Cadastro online</span>
+              </span>
+              <span class="ext" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9"/><path d="M19 13v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></span>
+            </a>
+            <a data-fav data-fav-id="not-cpet-carta" class="item" href="https://www.santos.sp.gov.br/?q=portal/centro-publico-de-emprego" target="_blank" rel="noopener">
+              <span class="ic" style="background:var(--c-emp-bg); color:var(--c-emp)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V9l8-6 8 6v12"/><path d="M4 21h16"/><rect x="9" y="13" width="6" height="8"/></svg></span>
+              <span>
+                <h4>Mutirão de emprego: a carta de encaminhamento sai no CPET</h4>
+                <p>Santos faz mutirões durante o ano e a entrada é a carta retirada antes no CPET, dentro do Poupatempo — Rua João Pessoa, 246, Centro (há entrada também pela Rua Amador Bueno, 249). Leve carteira de trabalho, RG, CPF e comprovante de residência. Atende de segunda a sexta, das 9h às 17h, e aos sábados, das 9h às 13h · Fonte: Prefeitura de Santos</p>
+                <span class="tag" style="background:var(--c-emp-bg); color:var(--c-emp)">Serviço da cidade</span>
+              </span>
+              <span class="ext" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9"/><path d="M19 13v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></span>
+            </a>
+            <a data-fav data-fav-id="not-carteira-pcd-santos" class="item" href="https://www.santos.sp.gov.br/?q=servico%2Fcarteira-da-pessoa-com-deficiencia" target="_blank" rel="noopener">
+              <span class="ic" style="background:var(--c-emp-bg); color:var(--c-emp)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="11" r="2"/><path d="M5.5 16c.7-1.5 1.8-2.2 3-2.2s2.3.7 3 2.2"/><path d="M14.5 10h4M14.5 13.5h4"/></svg></span>
+              <span>
+                <h4>Carteira da Pessoa com Deficiência sai de graça em Santos</h4>
+                <p>Documento gratuito, válido por cinco anos. O pedido é no Poupatempo, Rua João Pessoa, 246, com agendamento pelo site do Poupatempo. Leve foto 3x4, RG, CPF, comprovante de residência em Santos e o laudo médico com o CID — o mesmo laudo que as empresas pedem na vaga reservada para PCD · Fonte: Prefeitura de Santos</p>
+                <span class="tag" style="background:var(--c-emp-bg); color:var(--c-emp)">Documento gratuito</span>
+              </span>
+              <span class="ext" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9"/><path d="M19 13v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></span>
+            </a>
+            <a data-fav data-fav-id="not-auxilio-inclusao" class="item" href="https://www.gov.br/inss/pt-br/direitos-e-deveres/beneficios-assistenciais/auxilio-inclusao-a-pessoa-com-deficiencia" target="_blank" rel="noopener">
+              <span class="ic" style="background:var(--c-emp-bg); color:var(--c-emp)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"/><path d="M5 7h14"/><path d="M7 7l-3 6h6zM17 7l-3 6h6z"/><path d="M8 21h8"/></svg></span>
+              <span>
+                <h4>Conseguiu carteira assinada? O BPC não é cancelado</h4>
+                <p>Quem recebe BPC, tem deficiência moderada ou grave e é contratado com salário de até dois salários mínimos pode receber o auxílio-inclusão, de meio salário mínimo por mês (R$ 810,50 em 2026). Uma portaria do MDS com o INSS prevê a troca automática quando o INSS identifica o novo emprego; se ela não acontecer, peça no Meu INSS ou pelo telefone 135. O BPC fica suspenso, não cancelado, e pode voltar se você perder o emprego · Fonte: INSS e MDS</p>
+                <span class="tag" style="background:var(--c-emp-bg); color:var(--c-emp)">Seus direitos</span>
+              </span>
+              <span class="ext" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9"/><path d="M19 13v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></span>
+            </a>
+            <a data-fav data-fav-id="not-trampolim-cursos" class="item" href="https://www.trampolim.sp.gov.br" target="_blank" rel="noopener">
+              <span class="ic" style="background:var(--c-emp-bg); color:var(--c-emp)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 4 10 5-10 5L2 9l10-5z"/><path d="M6 11.5V16c0 1.5 2.7 3 6 3s6-1.5 6-3v-4.5"/><path d="M22 9v5"/></svg></span>
+              <span>
+                <h4>Curso gratuito do Estado dá prioridade a quem é PCD</h4>
+                <p>O portal Trampolim abre turmas gratuitas de qualificação várias vezes por ano, com inscrição pelo login gov.br. Quando há mais candidatos do que vagas, a pessoa com deficiência entra na frente no desempate. As turmas da Baixada nem sempre são em Santos — já houve em Praia Grande, Guarujá e São Vicente · Fonte: Governo do Estado de São Paulo</p>
+                <span class="tag" style="background:var(--c-emp-bg); color:var(--c-emp)">Curso gratuito</span>
+              </span>
+              <span class="ext" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9"/><path d="M19 13v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></span>
+            </a>
+            <a data-fav data-fav-id="not-acordo-porto-2026" class="item" href="https://www.cbnsantos.com.br/noticias/noticias/acordo-amplia-capacitacao-de-empresas-portuarias-para-fortalecer-inclusao-de-pessoas-com-deficiencia-em-santos.html" target="_blank" rel="noopener">
+              <span class="ic" style="background:var(--c-emp-bg); color:var(--c-emp)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h13v14H4z"/><path d="M17 8h3v9a2 2 0 0 1-2 2h-1z"/><path d="M7 9h7M7 12h7M7 15h4"/></svg></span>
+              <span>
+                <h4>Porto de Santos vai treinar empresas para contratar PCD</h4>
+                <p>Em agosto de 2026, a Secretaria estadual dos Direitos da Pessoa com Deficiência e o sindicato dos operadores portuários assinaram acordo para capacitar as empresas do porto em contratação inclusiva. O curso é para as empresas, não tem inscrição para trabalhador, mas sinaliza mais vagas PCD no porto adiante · Fonte: CBN Santos</p>
+                <span class="tag" style="background:var(--c-emp-bg); color:var(--c-emp)">Novidade na cidade</span>
+              </span>
+              <span class="ext" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9"/><path d="M19 13v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></span>
+            </a>
+          </div>
+          <p class="hint-sm" id="noticias-stamp" data-conferido="2026-10-17" data-oque="Notícias" data-extra="Serviços e direitos mudam: confirme no link antes de sair de casa.">Notícias conferidas em 17/10/2026. Serviços e direitos mudam: confirme no link antes de sair de casa.</p>
+
+          <p class="section-label">Apoio ao candidato</p>
+          <div class="items" style="margin-top:0">
+            <a data-fav data-fav-id="emp-polo-inclusiva" class="item" href="https://www.santos.sp.gov.br/?q=noticia/mutirao-do-emprego-inedito-atende-290-pessoas-com-deficiencia-e-tem-instalacao-de-polo-de-empregabilidade-inclusiva-em-santos" target="_blank" rel="noopener">
+              <span class="ic" style="background:var(--c-emp-bg); color:var(--c-emp)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V8l7-5 7 5v13"/><path d="M3 21h18M8 21v-6h4v6"/></svg></span>
+              <span>
+                <h4>Polo de Empregabilidade Inclusiva</h4>
+                <p>Serviço da Prefeitura de Santos com mutirões de emprego e cadastro de currículos para PCD</p>
+                <span class="tag" style="background:var(--c-emp-bg); color:var(--c-emp)">Gratuito</span>
+              </span>
+              <span class="ext" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9"/><path d="M19 13v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></span>
+            </a>
+          </div>
+        </section>
+
+        <!-- SAÚDE -->
+        <section class="screen" id="scr-sau" aria-label="Saúde">
+          <header class="detail-head" style="background:linear-gradient(130deg,var(--c-sau),#8F2837)">
+            <div class="toprow">
+              <button class="back" data-go="scr-home" aria-label="Voltar">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg>
+              </button>
+              <h2>Saúde</h2>
+            </div>
+            <p>Em breve: agendamento com profissionais que atendem PCD, presencial ou on-line.</p>
+            <div class="chips"><span class="chip">Em breve</span><span class="chip">SUS</span><span class="chip">Convênios</span><span class="chip">Libras</span></div>
+          </header>
+
+          <p class="notice">Esta tela ainda está sendo preparada: o agendamento ainda não funciona. Você já pode salvar as especialidades nos Favoritos.</p>
+
+          <p class="section-label">Especialidades</p>
+          <div class="grid">
+            <button data-fav data-fav-id="sau-psiquiatra" class="cat" data-toast="Em breve: agenda de Psiquiatria">
+              <span class="ic" style="background:var(--c-sau-bg); color:var(--c-sau)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3a6 6 0 0 1 6 6c0 1.5-.5 2.7-1.3 3.7.2.7.3 1.5.3 2.3a6 6 0 0 1-6 6h-1v-3"/><path d="M14 3a6.5 6.5 0 0 0-8.8 8C4.4 12 4 13.2 4 14.5 4 17 6 19 8.5 19H12"/><path d="M10 9h4M12 7v4"/></svg>
+              </span>
+              <h3>Psiquiatra</h3>
+              <p>Consultas e acompanhamento de medicação</p>
+            </button>
+            <button data-fav data-fav-id="sau-psicologo" class="cat" data-toast="Em breve: agenda de Psicologia">
+              <span class="ic" style="background:var(--c-sau-bg); color:var(--c-sau)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5c0 4.1-4 7.5-9 7.5-1 0-2-.1-2.9-.4L4 20l1.2-3.6C3.8 15.1 3 13.4 3 11.5 3 7.4 7 4 12 4s9 3.4 9 7.5z"/><path d="M8.5 11.5h.01M12 11.5h.01M15.5 11.5h.01"/></svg>
+              </span>
+              <h3>Psicólogo</h3>
+              <p>Terapia individual e em grupo, com valores sociais</p>
+            </button>
+            <button data-fav data-fav-id="sau-nutricionista" class="cat" data-toast="Em breve: agenda de Nutrição">
+              <span class="ic" style="background:var(--c-sau-bg); color:var(--c-sau)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20c-5 0-8-3-8-8 0-3 2-6 5-6 2 0 3 1 3 1s1-1 3-1c3 0 5 3 5 6 0 5-3 8-8 8z"/><path d="M12 7c0-2 1-3.5 3-4"/></svg>
+              </span>
+              <h3>Nutricionista</h3>
+              <p>Planos alimentares adaptados às suas necessidades</p>
+            </button>
+            <button data-fav data-fav-id="sau-terapia-ocupacional" class="cat" data-toast="Em breve: agenda de Terapia Ocupacional">
+              <span class="ic" style="background:var(--c-sau-bg); color:var(--c-sau)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 3h2a2 2 0 0 1 2 2v2h2a2 2 0 0 1 2 2v2h-2.2a2.3 2.3 0 0 0 0 4.6H19V21a2 2 0 0 1-2 2h-2v-2.2a2.3 2.3 0 0 0-4.6 0V23"/><path d="M11 3v2.2a2.3 2.3 0 0 1-4.6 0V3"/><path d="M3 9h2.2a2.3 2.3 0 0 1 0 4.6H3"/><path d="M3 9a2 2 0 0 1 2-2h4M3 13.6V19a2 2 0 0 0 2 2h5.4"/></svg>
+              </span>
+              <h3>Terapia ocupacional</h3>
+              <p>Autonomia nas atividades do dia a dia</p>
+            </button>
+            <button data-fav data-fav-id="sau-fisioterapeuta" class="cat wide" data-toast="Em breve: agenda de Fisioterapia">
+              <span class="ic" style="background:var(--c-sau-bg); color:var(--c-sau)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l2-5 3 9 2-4h7"/></svg>
+              </span>
+              <span class="txt">
+                <h3>Fisioterapeuta</h3>
+                <p>Reabilitação e fortalecimento</p>
+              </span>
+              <span class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg></span>
+            </button>
+          </div>
+
+          <p class="section-label">Em destaque</p>
+          <div class="items" style="margin-top:0">
+            <button data-fav data-fav-id="sau-teleconsulta" class="item" data-toast="Em breve: teleconsulta acessível">
+              <span class="ic" style="background:var(--c-sau-bg); color:var(--c-sau)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2.5"/><path d="M9 8h6M9 12h6M9 16h4"/></svg></span>
+              <span>
+                <h4>Teleconsulta acessível</h4>
+                <p>Atendimento por vídeo com legenda automática e intérprete de Libras, em preparação</p>
+                <span class="tag" style="background:var(--c-sau-bg); color:var(--c-sau)">Em breve</span>
+              </span>
+            </button>
+          </div>
+        </section>
+
+        <!-- ALIMENTAÇÃO -->
+        <section class="screen" id="scr-ali" aria-label="Alimentação">
+          <header class="detail-head" style="background:linear-gradient(130deg,var(--c-ali),#38661F)">
+            <div class="toprow">
+              <button class="back" data-go="scr-home" aria-label="Voltar">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg>
+              </button>
+              <h2>Alimentação</h2>
+            </div>
+            <p>Lugares para comer bem em Santos, com acessibilidade e opções para restrições alimentares.</p>
+            <div class="chips"><span class="chip">Acessível</span><span class="chip">Sem glúten</span><span class="chip">Delivery</span></div>
+          </header>
+
+          <p class="section-label">Onde comer</p>
+          <div class="grid">
+            <a data-fav data-fav-id="ali-dai-costa" class="cat" href="https://dai-costa.goomer.app/" target="_blank" rel="noopener">
+              <span class="ic" style="background:var(--c-ali-bg); color:var(--c-ali)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 10a4 4 0 0 1 .3-3A4.5 4.5 0 0 1 12 5a4.5 4.5 0 0 1 4.7 2 4 4 0 0 1 .3 3"/><path d="M7 10a2.5 2.5 0 0 0-.5 5V19a1.5 1.5 0 0 0 1.5 1.5h8A1.5 1.5 0 0 0 17.5 19v-4a2.5 2.5 0 0 0-.5-5"/><path d="M6.5 16.5h11"/></svg>
+              </span>
+              <h3>Dai Costa</h3>
+              <p>Restaurante com espaço acessível, cardápio adaptado e equipe treinada</p>
+            </a>
+            <a data-fav data-fav-id="ali-fateri-sem-gluten" class="cat" href="https://faterividasemgluten.menuintegrado.com.br/#/categorias/almoco" target="_blank" rel="noopener">
+              <span class="ic" style="background:var(--c-ali-bg); color:var(--c-ali)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21v-9"/><path d="M12 12c-2.5 0-4.5-2-4.5-4.5C10 7.5 12 9.5 12 12zm0 0c2.5 0 4.5-2 4.5-4.5C14 7.5 12 9.5 12 12zm0-5c-2 0-3.5-1.6-3.5-3.5C10.5 3.5 12 5 12 7zm0 0c2 0 3.5-1.6 3.5-3.5C13.5 3.5 12 5 12 7zM12 17c-2.5 0-4.5-2-4.5-4.5"/><path d="m4 20 16-16" stroke-width="2.4"/></svg>
+              </span>
+              <h3>Fatéri Vida sem Glúten</h3>
+              <p>Padaria e confeitaria 100% sem glúten, com opções sem lactose</p>
+            </a>
+          </div>
+        </section>
+
+        <!-- EDUCAÇÃO -->
+        <section class="screen" id="scr-edu" aria-label="Faculdades e cursos">
+          <header class="detail-head" style="background:linear-gradient(130deg,var(--c-edu),#7C4E00)">
+            <div class="toprow">
+              <button class="back" data-go="scr-home" aria-label="Voltar">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg>
+              </button>
+              <h2>Faculdades e cursos</h2>
+            </div>
+            <p>Formação superior e profissionalizante em Santos, com estrutura acessível, cotas e bolsas.</p>
+            <div class="chips"><span class="chip">Cotas PCD</span><span class="chip">Gratuito</span><span class="chip">Profissionalizante</span></div>
+          </header>
+
+          <p class="section-label">Instituições e programas</p>
+          <div class="grid">
+            <a data-fav data-fav-id="edu-pip-tea" class="cat" href="https://www.unisantos.br/clinicapsicologia/tea-inclusao-profissional/" target="_blank" rel="noopener">
+              <span class="ic" style="background:var(--c-edu-bg); color:var(--c-edu)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="12" rx="2"/><path d="M9 8V6.5A1.5 1.5 0 0 1 10.5 5h3A1.5 1.5 0 0 1 15 6.5V8"/><path d="M12 14c-1.2-1.8-2.7-2.7-3.9-1.9s-1.2 3 0 3.8 2.7-.1 3.9-1.9zm0 0c1.2 1.8 2.7 2.7 3.9 1.9s1.2-3 0-3.8-2.7.1-3.9 1.9z"/></svg>
+              </span>
+              <h3>PIP TEA · Inclusão Profissional</h3>
+              <p>Preparação e inclusão no mercado de trabalho para pessoas autistas</p>
+            </a>
+            <a data-fav data-fav-id="edu-unifesp-santos" class="cat" href="https://unifesp.br/campus/san7/" target="_blank" rel="noopener">
+              <span class="ic" style="background:var(--c-edu-bg); color:var(--c-edu)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 4 10 5-10 5L2 9l10-5z"/><path d="M6 11.5V16c0 1.5 2.7 3 6 3s6-1.5 6-3v-4.5"/><path d="M22 9v5"/></svg>
+              </span>
+              <h3>Unifesp Santos</h3>
+              <p>Universidade pública com cotas PCD e núcleo de acessibilidade</p>
+            </a>
+            <a data-fav data-fav-id="edu-senac-santos" class="cat wide" href="https://www.sp.senac.br/web/senac-santos" target="_blank" rel="noopener">
+              <span class="ic" style="background:var(--c-edu-bg); color:var(--c-edu)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6c-1.5-1.5-3.5-2-6-2v14c2.5 0 4.5.5 6 2 1.5-1.5 3.5-2 6-2V4c-2.5 0-4.5.5-6 2z"/><path d="M12 6v14"/></svg>
+              </span>
+              <span class="txt">
+                <h3>Senac Santos</h3>
+                <p>Cursos profissionalizantes com bolsas gratuitas e turmas inclusivas</p>
+              </span>
+              <span class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg></span>
+            </a>
+          </div>
+        </section>
+
+        <!-- NAMORO -->
+        <section class="screen" id="scr-nam" aria-label="Namoro e conexões">
+          <header class="detail-head" style="background:linear-gradient(130deg,var(--c-nam),#8F2E5C)">
+            <div class="toprow">
+              <button class="back" data-go="scr-home" aria-label="Voltar">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg>
+              </button>
+              <h2>Namoro e conexões</h2>
+            </div>
+            <p>Encontros reais em Santos e pessoas que usam o app e escolheram aparecer aqui.</p>
+            <div class="chips"><span class="chip">Você escolhe aparecer</span><span class="chip">Só maiores de 18 anos</span><span class="chip">Sem telefone nem endereço</span></div>
+          </header>
+
+          <p class="section-label">Encontros em Santos</p>
+          <div class="items" style="margin-top:0" id="nam-eventos-lista">
+            <a data-fav data-fav-id="nam-cinema-azul-roxy" class="item" href="https://www.juicysantos.com.br/noticias-da-regiao/roxy-cine-azul-sessao-adaptada-e-gratuita-na-baixada/" target="_blank" rel="noopener">
+              <span class="ic" style="background:var(--c-nam-bg); color:var(--c-nam)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="18" height="11" rx="2"/><path d="M3 9l1.5-4.5 16 3L21 9"/><path d="M8 5.4 9.5 8.4M13.5 6.3 15 9.3"/></svg></span>
+              <span>
+                <h4>Cinema Azul · sessão adaptada no Cine Roxy</h4>
+                <p>Última terça de cada mês (em outubro, dia 27), no Roxy do Gonzaga e no de São Vicente. Sessão com menos estímulos e liberdade para se mexer, para quem tem autismo ou deficiência intelectual. PCD com laudo não paga; acompanhante paga meia. Confira filme e horário no site do Roxy · Fonte: Juicy Santos</p>
+                <span class="tag" style="background:var(--c-nam-bg); color:var(--c-nam)">27 de outubro</span>
+              </span>
+              <span class="ext" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9"/><path d="M19 13v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></span>
+            </a>
+            <a data-fav data-fav-id="nam-esporte-adaptado-sespad" class="item" href="https://www.santos.sp.gov.br/?q=portal%2Fesportes-adaptados" target="_blank" rel="noopener">
+              <span class="ic" style="background:var(--c-nam-bg); color:var(--c-nam)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="17" cy="5" r="2.4"/><path d="M4 21a7 7 0 0 1 9-9"/><circle cx="9" cy="17" r="4.6"/><path d="M11 9l4 1 3 4h3"/></svg></span>
+              <span>
+                <h4>Aulas de esporte adaptado da Prefeitura</h4>
+                <p>A Seção de Esportes Adaptados tem aulas gratuitas para pessoas com deficiência, como natação, basquete adaptado e a nova modalidade de tênis em cadeira de rodas, no Rebouças e na Zona Noroeste. Inscrição presencial, com laudo médico recente · Fonte: Prefeitura de Santos</p>
+                <span class="tag" style="background:var(--c-nam-bg); color:var(--c-nam)">Gratuito</span>
+              </span>
+              <span class="ext" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9"/><path d="M19 13v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></span>
+            </a>
+            <a data-fav data-fav-id="nam-praia-acessivel" class="item" href="https://www.santos.sp.gov.br/?q=servico/programa-praia-acessivel" target="_blank" rel="noopener">
+              <span class="ic" style="background:var(--c-nam-bg); color:var(--c-nam)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 18c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/><circle cx="17" cy="6" r="3"/><path d="M3 14c3-6 8-8 12-7"/></svg></span>
+              <span>
+                <h4>Praia Acessível · tenda do Canal 3</h4>
+                <p>Sábados, domingos e feriados prolongados, 9h às 15h · banho de mar assistido em cadeira anfíbia, esporte adaptado e lazer na areia. Desde março de 2026, a Lei Municipal 4.729 garante acessibilidade permanente nas praias de Santos · Fonte: Prefeitura de Santos</p>
+                <span class="tag" style="background:var(--c-nam-bg); color:var(--c-nam)">Todo fim de semana</span>
+              </span>
+              <span class="ext" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9"/><path d="M19 13v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></span>
+            </a>
+            <a data-fav data-fav-id="nam-condefi" class="item" href="https://www.santos.sp.gov.br/?q=content/condefi-conselho-dos-direitos-das-pessoas-com-deficiencia" target="_blank" rel="noopener">
+              <span class="ic" style="background:var(--c-nam-bg); color:var(--c-nam)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="9" r="2.6"/><circle cx="16" cy="9" r="2.6"/><path d="M3 19c0-2.8 2.2-5 5-5M21 19c0-2.8-2.2-5-5-5"/></svg></span>
+              <span>
+                <h4>CONDEFI · reuniões abertas do conselho</h4>
+                <p>Assembleias abertas à comunidade · a próxima data sai na página oficial · Fonte: Prefeitura de Santos</p>
+                <span class="tag" style="background:var(--c-nam-bg); color:var(--c-nam)">Participação aberta</span>
+              </span>
+              <span class="ext" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9"/><path d="M19 13v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></span>
+            </a>
+          </div>
+          <p class="hint-sm" id="nam-stamp">Programação conferida em 12/10/2026 no site da Prefeitura de Santos e na imprensa local. Datas mudam: confirme no link antes de sair de casa.</p>
+
+          <p class="section-label" id="nam-pessoas-rotulo" tabindex="-1">Pessoas que escolheram aparecer</p>
+          <div class="items" style="margin-top:0" id="nam-pessoas"></div>
+          <div class="empty" id="nam-pessoas-vazio" hidden>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.9 3.1-7 7-7s7 3.1 7 7"/></svg>
+            Ninguém apareceu aqui ainda.<br>Quem quiser ser visto ativa isso no Perfil — nada é preenchido automaticamente.
+          </div>
+          <p class="notice" id="nam-entrar" hidden>Para ver as pessoas da lista, <button class="btn-inline" type="button" data-entrar="namoro">entre com seu e-mail</button>. A lista só aparece para quem entrou na conta.</p>
+          <p class="notice" id="nam-indisponivel" hidden>Não deu para carregar a lista agora. Confira sua internet e abra esta tela de novo.</p>
+          <button class="fav-cta" type="button" id="btn-nam-aparecer" style="background:#A6336B; box-shadow:0 8px 20px rgba(140,40,90,.25)">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.5-9A5.2 5.2 0 0 1 12 7a5.2 5.2 0 0 1 9.5 5c-2 4.4-9.5 9-9.5 9z"/></svg>
+            Quero aparecer nesta lista
+          </button>
+          <p class="hint-sm" style="margin-top:12px">Aqui ninguém publica telefone, endereço nem documento. A conversa acontece na Comunidade, na aba Chat. Se um perfil incomodar você, toque em <strong>Denunciar perfil</strong>: ele some da sua lista na hora e a moderação analisa. Na denúncia, você também pode bloquear a pessoa.</p>
+        </section>
+
+        <!-- FAVORITOS -->
+        <section class="screen" id="scr-fav" aria-label="Favoritos">
+          <header class="detail-head" style="background:linear-gradient(130deg,#17803D,#0B4F26)">
+            <div class="toprow">
+              <button class="back" data-go="scr-home" aria-label="Voltar">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg>
+              </button>
+              <h2>Favoritos</h2>
+            </div>
+            <p>Tudo o que você marcar com a estrela fica guardado aqui, pronto para abrir de novo.</p>
+            <div class="chips"><span class="chip" id="fav-count">0 itens salvos</span><span class="chip" id="fav-sync">Salvo no seu aparelho</span></div>
+          </header>
+
+          <button class="fav-cta" type="button" id="btn-fav-mode" aria-pressed="false">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 17.3-5.4 3 1-6.1-4.4-4.2 6.1-.9L12 3.6l2.7 5.5 6.1.9-4.4 4.2 1 6.1z"/></svg>
+            Bote seus favoritos
+          </button>
+          <p class="notice" id="fav-mode-note" hidden>
+            Modo favoritar ligado: toque na <strong>estrela</strong> de qualquer atividade, ONG, vaga, serviço de saúde, restaurante ou curso.
+            <button class="btn-inline" type="button" id="btn-fav-mode-off">Desligar</button>
+          </p>
+
+          <p class="section-label">Seus itens salvos</p>
+          <div class="items" style="margin-top:0" id="fav-list"></div>
+          <p class="hint-sm" id="fav-aviso-vagas" hidden>Vagas saem do ar com o tempo. Se um link salvo não abrir, a vaga já foi encerrada.</p>
+          <div class="empty" id="fav-empty">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 17.3-5.4 3 1-6.1-4.4-4.2 6.1-.9L12 3.6l2.7 5.5 6.1.9-4.4 4.2 1 6.1z"/></svg>
+            Você ainda não salvou nada.<br>Toque em <strong>Bote seus favoritos</strong> e escolha o que quiser guardar.
+          </div>
+        </section>
+
+        <!-- CHAT (Comunidade) -->
+        <section class="screen" id="scr-chat" aria-label="Chat">
+          <header class="detail-head" style="background:linear-gradient(130deg,#2E6F8E,#173D52)">
+            <div class="toprow">
+              <button class="back" data-go="scr-home" aria-label="Voltar">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg>
+              </button>
+              <h2>Chat</h2>
+            </div>
+            <p>Converse com outras pessoas da comunidade de Santos e região.</p>
+            <div class="chips"><span class="chip">Comunidade PCD</span><span class="chip">Com moderação</span></div>
+          </header>
+
+          <div class="chat-panel" id="panel-comm">
+            <div class="comm-topo">
+              <p class="chat-meta"><span class="dot-live off" id="comm-dot" aria-hidden="true"></span> <span id="comm-online">Vendo quem está online...</span></p>
+              <button class="btn-denunciar-geral" type="button" id="comm-denunciar" hidden>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21V4"/><path d="M5 4h12l-2.5 4.5L17 13H5"/></svg>
+                Denunciar mensagem
+              </button>
+            </div>
+            <div class="chat-log" id="log-comm" aria-live="polite"></div>
+            <p class="notice" id="comm-unavailable" hidden>Não deu para carregar a conversa agora. Confira sua internet: a conversa volta sozinha quando a conexão voltar.</p>
+            <p class="notice" id="comm-entrar" hidden>Para escrever, <button class="btn-inline" type="button" data-entrar="comunidade">entre com seu e-mail</button>. Ler as mensagens continua livre.</p>
+            <p class="notice" id="comm-name" hidden>Escolha um nome no <button class="btn-inline" type="button" id="btn-comm-perfil">Perfil</button> para as outras pessoas saberem quem está falando.</p>
+            <p class="notice" id="comm-priv" hidden>Para escrever na Comunidade, leia e aceite a <button class="btn-inline" type="button" id="btn-comm-aceitar">Política de privacidade</button>. Ler as mensagens continua livre.</p>
+            <p class="notice" id="comm-bloqueado" hidden>A moderação bloqueou sua conta. Você não pode mais escrever na Comunidade nem aparecer em Namoro e conexões.</p>
+            <div class="composer">
+              <label class="sr-only" for="comm-input">Escreva uma mensagem para a comunidade</label>
+              <textarea id="comm-input" rows="1" maxlength="600" placeholder="Escreva para a comunidade..."></textarea>
+              <button class="btn-send" type="button" id="comm-send" aria-label="Enviar mensagem">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l16-8-6 8 6 8z"/></svg>
+              </button>
+            </div>
+            <p class="hint-sm">As mensagens ficam visíveis para todas as pessoas que abrem o Inclua Santos. Não escreva documentos, telefone nem endereço. Viu algo errado? Toque em <strong>Denunciar mensagem</strong>, no alto da conversa, ou em <strong>Denunciar</strong> na própria mensagem. Na denúncia, você também pode bloquear a pessoa.</p>
+          </div>
+        </section>
+
+        <!-- PERFIL -->
+        <section class="screen" id="scr-perfil" aria-label="Perfil">
+          <header class="detail-head" style="background:linear-gradient(130deg,var(--brand),#0A4F48)">
+            <div class="toprow">
+              <button class="back" data-go="scr-home" aria-label="Voltar">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg>
+              </button>
+              <h2>Perfil</h2>
+            </div>
+            <p>Sua conta, seu nome no app, o que você já usou por aqui e os ajustes de acessibilidade.</p>
+          </header>
+
+          <div class="prof-top">
+            <span class="avatar-lg" id="prof-initial" aria-hidden="true">V</span>
+            <div>
+              <p class="prof-name" id="prof-name">Visitante</p>
+              <p class="prof-sub" id="prof-sync">Salvo no seu aparelho</p>
+            </div>
+          </div>
+
+          <p class="section-label">Sua conta</p>
+          <div class="items" style="margin-top:0">
+            <button class="item" type="button" id="btn-conta-entrar" data-entrar="perfil">
+              <span class="ic" style="background:var(--brand-soft); color:var(--brand)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m4 7 8 6 8-6"/></svg></span>
+              <span>
+                <h4>Entrar com seu e-mail</h4>
+                <p>Sem senha: mandamos um código para o seu e-mail. Precisa para escrever na Comunidade, aparecer em Namoro e se inscrever como voluntário.</p>
+              </span>
+              <span class="ext" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg></span>
+            </button>
+            <div class="item estatico" id="conta-logada" hidden>
+              <span class="ic" style="background:var(--fav-bg); color:var(--fav)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="8" r="3.4"/><path d="M3.5 20c0-3.6 2.9-6.5 6.5-6.5 1.5 0 2.9.5 4 1.4"/><path d="m15 18 2 2 4-4.5"/></svg></span>
+              <span>
+                <h4>Você entrou na sua conta</h4>
+                <p><span id="conta-email"></span> · só você vê este e-mail</p>
+              </span>
+            </div>
+            <button class="item" type="button" id="btn-sair" hidden>
+              <span class="ic" style="background:var(--brand-soft); color:var(--brand)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h4a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-4"/><path d="M10 16l-4-4 4-4M6 12h10"/></svg></span>
+              <span>
+                <h4>Sair da conta</h4>
+                <p>Seus favoritos e ajustes de acessibilidade continuam neste aparelho.</p>
+              </span>
+            </button>
+          </div>
+
+          <div id="perfil-mod" hidden>
+            <p class="section-label">Administração</p>
+            <div class="items" style="margin-top:0">
+              <button class="item" type="button" id="btn-perfil-insc">
+                <span class="ic" style="background:var(--c-ong-bg); color:var(--c-ong)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 11V6.5a1.5 1.5 0 0 1 3 0V11M11 10V4.5a1.5 1.5 0 0 1 3 0V10M14 10V5.5a1.5 1.5 0 0 1 3 0V12"/><path d="M17 9.5a1.5 1.5 0 0 1 3 0V14a7 7 0 0 1-7 7h-1a6 6 0 0 1-5-2.7l-2.4-3.7a1.6 1.6 0 0 1 2.6-1.9L8 14"/></svg></span>
+                <span>
+                  <h4>Inscrições de voluntariado</h4>
+                  <p id="perfil-insc-resumo">Nenhuma inscrição nova</p>
+                </span>
+                <span class="ext" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg></span>
+              </button>
+              <button class="item" type="button" id="btn-perfil-mod">
+                <span class="ic" style="background:var(--c-sau-bg); color:var(--c-sau)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4.5 6v5.5c0 4.6 3.2 8.4 7.5 9.5 4.3-1.1 7.5-4.9 7.5-9.5V6z"/><path d="M12 8v4.5M12 15.8h.01"/></svg></span>
+                <span>
+                  <h4>Painel de moderação</h4>
+                  <p id="perfil-mod-resumo">Nenhuma denúncia para revisar</p>
+                </span>
+                <span class="ext" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg></span>
+              </button>
+            </div>
+            <p class="hint-sm" style="margin-top:10px">Só aparece para quem modera o app.</p>
+          </div>
+
+          <p class="section-label">Seu nome no app</p>
+          <div class="field">
+            <label class="sr-only" for="prof-input">Nome de exibição</label>
+            <div class="row">
+              <input id="prof-input" type="text" maxlength="40" autocomplete="nickname" placeholder="Como você quer ser chamado?">
+              <button class="btn-line" type="button" id="prof-save">Salvar</button>
+            </div>
+            <label class="sr-only" for="prof-sobre">Uma frase sobre você</label>
+            <input id="prof-sobre" type="text" maxlength="120" placeholder="Uma frase sobre você (opcional)">
+            <p class="hint-sm">É você quem escolhe o nome. Ele aparece nas suas mensagens da Comunidade e, se você quiser, na tela Namoro e conexões. Seu e-mail nunca aparece para as outras pessoas.</p>
+          </div>
+
+          <p class="section-label">Suas estatísticas</p>
+          <div class="stats">
+            <div class="stat"><b id="st-sessoes">1</b><span>Sessões no app</span></div>
+            <div class="stat"><b id="st-favoritos">0</b><span>Favoritos salvos</span></div>
+            <div class="stat"><b id="st-msgs">0</b><span>Mensagens enviadas</span></div>
+            <div class="stat"><b id="st-desde">hoje</b><span>Usando desde</span></div>
+          </div>
+
+          <p class="section-label">Seus favoritos</p>
+          <div class="items" style="margin-top:0">
+            <button class="item" type="button" id="btn-perfil-fav">
+              <span class="ic" style="background:var(--fav-bg); color:var(--fav)"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 17.3-5.4 3 1-6.1-4.4-4.2 6.1-.9L12 3.6l2.7 5.5 6.1.9-4.4 4.2 1 6.1z"/></svg></span>
+              <span>
+                <h4>Ver meus favoritos</h4>
+                <p><span id="perfil-fav-resumo">Nenhum item salvo ainda</span></p>
+              </span>
+            </button>
+          </div>
+
+          <p class="section-label">Namoro e conexões</p>
+          <div class="items" style="margin-top:0">
+            <button class="item" type="button" id="prof-aparecer" aria-pressed="false">
+              <span class="ic" style="background:var(--c-nam-bg); color:var(--c-nam)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7.5-4.6-9.5-9A5.2 5.2 0 0 1 12 7a5.2 5.2 0 0 1 9.5 5c-2 4.4-9.5 9-9.5 9z"/></svg></span>
+              <span>
+                <h4>Aparecer na lista de pessoas</h4>
+                <p>Mostra seu nome e sua frase para quem entrou na conta e abre a tela Namoro e conexões. Só para maiores de 18 anos. Você sai da lista quando quiser.</p>
+              </span>
+              <span class="state">Desligado</span>
+            </button>
+          </div>
+
+          <div id="bloq-bloco" hidden>
+            <p class="section-label">Pessoas que você bloqueou</p>
+            <div class="items" style="margin-top:0" id="bloq-lista"></div>
+            <p class="hint-sm" style="margin-top:10px">Você não vê as mensagens nem o perfil delas. Elas não ficam sabendo.</p>
+          </div>
+
+          <p class="section-label">Acessibilidade</p>
+          <div class="items" style="margin-top:0">
+            <button class="item" type="button" data-a11y="big">
+              <span class="ic" style="background:var(--brand-soft); color:var(--brand)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 19 10 5l6 14M6.3 14h7.4"/><path d="M16 19l3-7 3 7"/></svg></span>
+              <span>
+                <h4>Texto grande</h4>
+                <p>Aumenta o tamanho das letras em todas as telas</p>
+              </span>
+              <span class="state">Desligado</span>
+            </button>
+            <button class="item" type="button" data-a11y="contrast">
+              <span class="ic" style="background:var(--brand-soft); color:var(--brand)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 3v18A9 9 0 0 0 12 3z" fill="currentColor" stroke="none"/></svg></span>
+              <span>
+                <h4>Alto contraste</h4>
+                <p>Cores mais fortes e bordas mais marcadas</p>
+              </span>
+              <span class="state">Desligado</span>
+            </button>
+          </div>
+
+          <p class="section-label">Seus dados</p>
+          <div class="items" style="margin-top:0">
+            <button class="item" type="button" id="btn-perfil-priv">
+              <span class="ic" style="background:var(--brand-soft); color:var(--brand)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4.5 6v5.5c0 4.6 3.2 8.4 7.5 9.5 4.3-1.1 7.5-4.9 7.5-9.5V6z"/><rect x="9" y="11" width="6" height="5" rx="1"/><path d="M10.2 11V9.6a1.8 1.8 0 0 1 3.6 0V11"/></svg></span>
+              <span>
+                <h4>Política de privacidade</h4>
+                <p id="perfil-priv-resumo">Leia e aceite para escrever na Comunidade e aparecer em Namoro</p>
+              </span>
+              <span class="ext" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg></span>
+            </button>
+            <button class="item danger" type="button" id="btn-wipe">
+              <span class="ic" style="background:var(--c-sau-bg); color:var(--c-sau)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M9 7V5h6v2M6 7l1 13h10l1-13"/><path d="M10 11v6M14 11v6"/></svg></span>
+              <span>
+                <h4 id="wipe-title">Apagar meus dados deste app</h4>
+                <p id="wipe-sub">Remove seu nome, favoritos, estatísticas, seu cartão em Namoro, suas mensagens na Comunidade e suas inscrições de voluntariado.</p>
+              </span>
+            </button>
+            <button class="item danger" type="button" id="btn-apagar-conta" hidden>
+              <span class="ic" style="background:var(--c-sau-bg); color:var(--c-sau)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="8" r="3.4"/><path d="M3.5 20c0-3.6 2.9-6.5 6.5-6.5 1.3 0 2.5.4 3.5 1"/><path d="m16 15 5 5M21 15l-5 5"/></svg></span>
+              <span>
+                <h4>Apagar minha conta</h4>
+                <p>Apaga sua conta de login e tudo o que é seu no app. Não dá para desfazer.</p>
+              </span>
+            </button>
+          </div>
+        </section>
+
+        <!-- POLÍTICA DE PRIVACIDADE (o texto vem de privacidade.html) -->
+        <section class="screen" id="scr-priv" aria-label="Política de privacidade">
+          <header class="detail-head" style="background:linear-gradient(130deg,var(--brand),#0A4F48)">
+            <div class="toprow">
+              <button class="back" type="button" id="btn-priv-voltar" aria-label="Voltar">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg>
+              </button>
+              <h2>Política de privacidade</h2>
+            </div>
+            <p>O que o Inclua Santos guarda, quem vê e como apagar, em linguagem simples.</p>
+            <div class="chips"><span class="chip">LGPD</span><span class="chip" id="priv-versao">Regras da comunidade</span></div>
+          </header>
+
+          <div class="politica" id="politica-app">
+            <p class="hint-sm" style="margin-top:18px">Carregando a política...</p>
+          </div>
+          <p class="hint-sm" style="margin-top:12px"><a href="privacidade.html" class="link-ext">Abrir a política numa página separada</a></p>
+
+          <p class="hint-sm" id="priv-aceito" style="margin-top:16px" hidden></p>
+          <button class="fav-cta" type="button" id="btn-priv-aceitar">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+            Li e aceito a política
+          </button>
+        </section>
+
+        <!-- MODERAÇÃO (só quem administra o app) -->
+        <section class="screen" id="scr-mod" aria-label="Moderação">
+          <header class="detail-head" style="background:linear-gradient(130deg,#9E2F40,#5A1C26)">
+            <div class="toprow">
+              <button class="back" type="button" data-go="scr-perfil" aria-label="Voltar">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg>
+              </button>
+              <h2>Moderação</h2>
+            </div>
+            <p>Denúncias da Comunidade e de Namoro e conexões. Só quem administra o app vê esta tela.</p>
+            <div class="chips"><span class="chip">Quem denunciou fica em sigilo</span></div>
+          </header>
+
+          <p class="section-label" id="mod-rotulo" tabindex="-1">Para revisar</p>
+          <div class="items" style="margin-top:0" id="mod-pendentes"></div>
+          <div class="empty" id="mod-vazio">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 4.5 6v5.5c0 4.6 3.2 8.4 7.5 9.5 4.3-1.1 7.5-4.9 7.5-9.5V6z"/><path d="m9 12 2 2 4-4"/></svg>
+            Nenhuma denúncia para revisar.
+          </div>
+
+          <p class="section-label">Escondidos para todos</p>
+          <div class="items" style="margin-top:0" id="mod-ocultos"></div>
+          <p class="hint-sm" id="mod-ocultos-vazio">Nada escondido por enquanto.</p>
+
+          <p class="section-label">Contas bloqueadas</p>
+          <div class="items" style="margin-top:0" id="mod-bloqueados"></div>
+          <p class="hint-sm" id="mod-bloq-vazio">Nenhuma conta bloqueada.</p>
+
+          <p class="hint-sm" style="margin-top:18px">Conta bloqueada não escreve na Comunidade, sai de Namoro e conexões, e o que ela escreveu some para as outras pessoas.</p>
+        </section>
+
+        <!-- INSCRIÇÕES DE VOLUNTARIADO (só quem administra o app) -->
+        <section class="screen" id="scr-insc" aria-label="Inscrições de voluntariado">
+          <header class="detail-head" style="background:linear-gradient(130deg,var(--c-ong),#4B3391)">
+            <div class="toprow">
+              <button class="back" type="button" data-go="scr-perfil" aria-label="Voltar">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg>
+              </button>
+              <h2>Inscrições de voluntariado</h2>
+            </div>
+            <p>Encaminhe cada inscrição para a instituição escolhida e marque como enviada. A pessoa acompanha o andamento no app.</p>
+            <div class="chips"><span class="chip">Só quem administra o app vê</span></div>
+          </header>
+
+          <p class="section-label" id="insc-rotulo" tabindex="-1">Para encaminhar</p>
+          <div class="items" style="margin-top:0" id="insc-pendentes"></div>
+          <div class="empty" id="insc-vazio">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m7.5 12.5 3 3 6-6.5"/></svg>
+            Nenhuma inscrição nova.
+          </div>
+
+          <p class="section-label">Já enviadas para a instituição</p>
+          <div class="items" style="margin-top:0" id="insc-enviadas"></div>
+          <p class="hint-sm" id="insc-enviadas-vazio">Nenhuma ainda.</p>
+        </section>
+
+        <!-- ENTRAR (código no e-mail) -->
+        <section class="screen" id="scr-entrar" aria-label="Entrar">
+          <header class="detail-head" style="background:linear-gradient(130deg,var(--brand),#0A4F48)">
+            <div class="toprow">
+              <button class="back" type="button" id="btn-entrar-voltar" aria-label="Voltar">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg>
+              </button>
+              <h2>Entrar</h2>
+            </div>
+            <p>Sem senha: você recebe um código no seu e-mail e digita aqui.</p>
+            <div class="chips"><span class="chip">Seu e-mail não aparece para ninguém</span></div>
+          </header>
+
+          <p class="notice" id="entrar-motivo" hidden></p>
+
+          <form class="vol-form entrar-form" id="form-email" novalidate>
+            <div class="field">
+              <label for="entrar-email">Seu e-mail</label>
+              <input id="entrar-email" type="email" inputmode="email" autocomplete="email" maxlength="120" placeholder="voce@exemplo.com" required>
+            </div>
+            <p class="vol-erro" id="entrar-erro-email" role="alert" hidden></p>
+            <button class="fav-cta" type="submit" id="btn-enviar-codigo">Enviar código</button>
+          </form>
+
+          <form class="vol-form entrar-form" id="form-codigo" novalidate hidden>
+            <p class="notice" id="entrar-enviado" tabindex="-1"></p>
+            <div class="field">
+              <label for="entrar-codigo">Código que chegou no e-mail</label>
+              <input id="entrar-codigo" type="text" inputmode="numeric" autocomplete="one-time-code" maxlength="10" pattern="[0-9]*" required>
+            </div>
+            <p class="vol-erro" id="entrar-erro-codigo" role="alert" hidden></p>
+            <button class="fav-cta" type="submit" id="btn-confirmar-codigo">Entrar</button>
+            <div class="mod-botoes">
+              <button type="button" id="btn-reenviar">Reenviar código</button>
+              <button type="button" id="btn-trocar-email">Trocar e-mail</button>
+            </div>
+            <p class="hint-sm">Não chegou? Olhe a caixa de spam ou lixo eletrônico. O código vale por pouco tempo.</p>
+          </form>
+
+          <p class="hint-sm" style="margin-top:18px">Ao entrar, você cria uma conta no Inclua Santos com este e-mail. Veja na <button class="btn-inline" type="button" id="btn-entrar-politica">Política de privacidade</button> o que guardamos e como apagar.</p>
+        </section>
+
+      </div>
+
+      <!-- Accessibility -->
+      <button class="a11y-fab" id="a11yBtn" aria-label="Recursos de acessibilidade" aria-expanded="false">Aa</button>
+      <div class="a11y-menu" id="a11yMenu" role="menu" aria-label="Acessibilidade">
+        <button class="a11y-opt" role="menuitem" data-a11y="big">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 19 10 5l6 14M6.3 14h7.4"/><path d="M16 19l3-7 3 7"/></svg>
+          Texto grande <span class="state">Desligado</span>
+        </button>
+        <button class="a11y-opt" role="menuitem" data-a11y="contrast">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 3v18A9 9 0 0 0 12 3z" fill="currentColor" stroke="none"/></svg>
+          Alto contraste <span class="state">Desligado</span>
+        </button>
+        <button class="a11y-opt" role="menuitem" data-toast="Leitor de tela: use o do seu celular — o app é 100% compatível">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H3v6h3l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18.4 6a9 9 0 0 1 0 12"/></svg>
+          Leitor de tela
+        </button>
+      </div>
+
+      <div class="toast" id="toast"></div>
+      <p class="sr-only" id="avisos" aria-live="polite"></p>
+
+      <!-- Janela de denúncia -->
+      <div class="modal-fundo" id="denuncia-fundo" hidden>
+        <div class="modal-caixa" role="dialog" aria-modal="true" aria-labelledby="denuncia-titulo" aria-describedby="denuncia-ajuda">
+          <div class="modal-corpo">
+          <h3 id="denuncia-titulo">Denunciar</h3>
+          <p class="hint-sm" id="denuncia-ajuda">A pessoa denunciada não fica sabendo que foi você. Você deixa de ver o conteúdo na hora, e a moderação decide se esconde para todos.</p>
+          <p class="citacao" id="denuncia-resumo"></p>
+          <fieldset class="motivos" id="denuncia-escolha" hidden>
+            <legend>Qual mensagem?</legend>
+            <div class="escolhas" id="denuncia-opcoes"></div>
+          </fieldset>
+          <p class="notice" id="denuncia-vazio" hidden>Ainda não há mensagens de outras pessoas para denunciar. Se alguém escrever algo que incomode você, volte aqui ou toque em <strong>Denunciar</strong> na própria mensagem.</p>
+          <fieldset class="motivos" id="denuncia-motivos">
+            <legend>Qual é o problema?</legend>
+            <label class="motivo"><input type="radio" name="motivo" value="assedio"> Assédio ou conteúdo sexual</label>
+            <label class="motivo"><input type="radio" name="motivo" value="ofensa"> Ofensa, discriminação ou capacitismo</label>
+            <label class="motivo"><input type="radio" name="motivo" value="golpe"> Golpe ou pedido de dinheiro</label>
+            <label class="motivo"><input type="radio" name="motivo" value="dados"> Expõe ou pede dados pessoais</label>
+            <label class="motivo"><input type="radio" name="motivo" value="falso"> Perfil falso ou se passando por outra pessoa</label>
+            <label class="motivo"><input type="radio" name="motivo" value="outro"> Outro motivo</label>
+          </fieldset>
+          <label class="motivo bloquear-tambem" id="denuncia-bloquear-linha"><input type="checkbox" id="denuncia-bloquear"> Também bloquear esta pessoa: você não vê mais nada dela, e ela não fica sabendo</label>
+          </div>
+          <div class="modal-botoes">
+            <button class="btn-line sec" type="button" id="denuncia-cancelar">Cancelar</button>
+            <button class="btn-line perigo" type="button" id="denuncia-enviar" disabled>Enviar denúncia</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Janela de confirmação -->
+      <div class="modal-fundo" id="dialogo-fundo" hidden>
+        <div class="modal-caixa" role="alertdialog" aria-modal="true" aria-labelledby="dialogo-titulo" aria-describedby="dialogo-texto">
+          <div class="modal-corpo">
+            <h3 id="dialogo-titulo"></h3>
+            <p class="hint-sm" id="dialogo-texto"></p>
+          </div>
+          <div class="modal-botoes">
+            <button class="btn-line sec" type="button" id="dialogo-cancelar">Cancelar</button>
+            <button class="btn-line" type="button" id="dialogo-ok">Confirmar</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom nav -->
+      <nav class="navbar" aria-label="Navegação principal">
+        <button class="navbtn on" id="nav-home" aria-current="page" data-go="scr-home">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11 12 4l9 7"/><path d="M5 10v10h14V10"/></svg>
+          Início
+        </button>
+        <button class="navbtn" id="nav-fav" data-go="scr-fav">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 17-5.5 3 1-6-4.5-4.5 6.2-.9L12 3l2.8 5.6 6.2.9L16.5 14l1 6z"/></svg>
+          Favoritos
+        </button>
+        <button class="navbtn" id="nav-chat" data-go="scr-chat">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5c0 4.1-4 7.5-9 7.5-1 0-2-.1-2.9-.4L4 20l1.2-3.6C3.8 15.1 3 13.4 3 11.5 3 7.4 7 4 12 4s9 3.4 9 7.5z"/></svg>
+          Chat
+        </button>
+        <button class="navbtn" id="nav-perfil" data-go="scr-perfil">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.9 3.1-7 7-7s7 3.1 7 7"/></svg>
+          Perfil
+        </button>
+      </nav>
+    </div>
+  </div>
+</div>
+
+<script src="vendor/supabase-2.117.2.js"></script>
+<script src="js/config.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
