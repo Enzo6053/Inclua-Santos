@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base clara; values-night troca pela escura (o site segue o mesmo modo). -->
+    <style name="Base" parent="android:Theme.Material.Light.NoActionBar" />
+
+    <style name="Tema" parent="Base">
+        <item name="android:colorPrimary">@color/marca</item>
+        <item name="android:colorAccent">@color/marca</item>
+        <item name="android:windowBackground">@color/fundo</item>
+        <item name="android:statusBarColor">@color/fundo</item>
+        <item name="android:windowLightStatusBar">@bool/barras_claras</item>
+        <item name="android:navigationBarColor">@android:color/black</item>
+    </style>
+</resources>

@@ -1,0 +1,19 @@
+# Chaves de assinatura do Android: nunca entram no repositório
+*.jks
+*.keystore
+keystore.properties
+
+# Android / Gradle
+android/.gradle/
+android/build/
+android/app/build/
+android/local.properties
+android/.idea/
+*.iml
+
+# Node
+node_modules/
+
+# Sistema
+.DS_Store
+Thumbs.db
