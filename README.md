@@ -42,6 +42,19 @@ Aplicativo para pessoas com deficiência de Santos e região: atividades, ONGs, 
 
 Nunca coloque no site a chave `secret` nem a `service_role`.
 
+## Assistente de IA (Claude)
+
+A aba **Assistente IA** do Chat conversa com a função `supabase/functions/assistente`, que roda no Supabase e chama a API da Anthropic. A chave da IA fica só no Supabase, nunca no site. Só quem entrou na conta pode perguntar, com limite de 30 perguntas por pessoa por dia (função `usar_assistente` em `schema.sql`).
+
+Para ligar:
+
+1. Em https://console.anthropic.com, crie uma chave em **API Keys** e coloque créditos em **Billing**.
+2. No Supabase, em **Edge Functions > Secrets**, crie o segredo `ANTHROPIC_API_KEY` com essa chave.
+3. Em **Edge Functions > Deploy a new function > Via Editor**, dê o nome `assistente`, cole o conteúdo de `supabase/functions/assistente/index.ts` e clique em **Deploy**.
+4. Rode `supabase/schema.sql` de novo no SQL Editor (cria a contagem de perguntas).
+
+O modelo padrão é `claude-opus-5-5`. Para gastar menos, crie também o segredo `MODELO_IA` com o valor `claude-haiku-5-5`.
+
 ## Atualização semanal das listas
 
 As listas ficam em `web/index.html`, com os mesmos IDs do protótipo:

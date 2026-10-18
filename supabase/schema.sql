@@ -627,7 +627,53 @@ end $$;
 
 
 -- ---------------------------------------------------------------------
--- 8. Moderadores
+-- 8. Assistente de IA: limite de perguntas por pessoa por dia
+-- (a função "assistente", em supabase/functions, chama usar_assistente
+-- antes de cada resposta)
+-- ---------------------------------------------------------------------
+create table if not exists public.uso_assistente (
+  usuario   uuid not null references auth.users (id) on delete cascade,
+  dia       date not null,
+  perguntas integer not null default 0 check (perguntas >= 0),
+  primary key (usuario, dia)
+);
+comment on table public.uso_assistente is 'inclua-santos:v1';
+alter table public.uso_assistente enable row level security;
+-- sem regras de acesso: só a função abaixo lê e grava
+revoke all on public.uso_assistente from anon, authenticated;
+
+-- Conta uma pergunta e devolve quantas ainda restam hoje (-1: acabou).
+create or replace function public.usar_assistente()
+returns integer
+language plpgsql security definer set search_path = ''
+as $$
+declare
+  eu uuid := auth.uid();
+  hoje date := (now() at time zone 'America/Sao_Paulo')::date;
+  limite constant integer := 30;
+  usadas integer;
+begin
+  if eu is null then
+    raise exception 'Entre na sua conta primeiro.' using errcode = '42501';
+  end if;
+  insert into public.uso_assistente as u (usuario, dia, perguntas)
+  values (eu, hoje, 1)
+  on conflict (usuario, dia) do update set perguntas = u.perguntas + 1
+  where u.perguntas < limite
+  returning perguntas into usadas;
+  if usadas is null then
+    return -1;
+  end if;
+  delete from public.uso_assistente where usuario = eu and dia < hoje - 7;
+  return limite - usadas;
+end;
+$$;
+revoke execute on function public.usar_assistente() from public, anon;
+grant  execute on function public.usar_assistente() to authenticated;
+
+
+-- ---------------------------------------------------------------------
+-- 9. Moderadores
 -- Depois de entrar no app uma vez com o seu e-mail, tire os dois traços
 -- do começo das 3 linhas abaixo, troque o e-mail e rode só elas.
 -- ---------------------------------------------------------------------

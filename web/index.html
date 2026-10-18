@@ -22,7 +22,7 @@
     <p>Sete frentes de apoio em um só lugar, feitas para Santos e região: atividades, ONGs, emprego, saúde, alimentação, educação e relacionamentos — com acessibilidade como princípio de design, não como recurso extra.</p>
     <ul class="feature-list">
       <li><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>7 categorias navegáveis, com vagas de emprego reais atualizadas toda semana</li>
-      <li><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Favoritos que ficam salvos e comunidade com denúncia, bloqueio e moderação</li>
+      <li><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Favoritos que ficam salvos, assistente de IA para tirar dúvidas e comunidade com denúncia, bloqueio e moderação</li>
       <li><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Entrada sem senha: um código chega no seu e-mail</li>
       <li><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Botão de acessibilidade: texto grande e alto contraste funcionam de verdade</li>
       <li><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Cores por categoria, alvos de toque generosos e foco visível no teclado</li>
@@ -809,11 +809,47 @@
               </button>
               <h2>Chat</h2>
             </div>
-            <p>Converse com outras pessoas da comunidade de Santos e região.</p>
-            <div class="chips"><span class="chip">Comunidade PCD</span><span class="chip">Com moderação</span></div>
+            <p>Tire dúvidas com a assistente do app a qualquer hora, ou converse com outras pessoas da comunidade.</p>
+            <div class="chips"><span class="chip">Assistente 24 h</span><span class="chip">Comunidade PCD</span></div>
           </header>
 
-          <div class="chat-panel" id="panel-comm">
+          <div class="tabs" role="tablist" aria-label="Tipo de conversa">
+            <button class="tab" type="button" role="tab" id="tab-ia" aria-selected="true" aria-controls="panel-ia">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="7" width="16" height="12" rx="3"/><path d="M12 3v4M8.5 12.5h.01M15.5 12.5h.01M9.5 16c1.6 1.1 3.4 1.1 5 0"/></svg>
+              Assistente IA
+            </button>
+            <button class="tab" type="button" role="tab" id="tab-comm" aria-selected="false" aria-controls="panel-comm">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3 19c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M16 5.2a3 3 0 0 1 0 5.6M18.5 19c0-2.2-.9-4.2-2.3-5.6"/></svg>
+              Comunidade
+            </button>
+          </div>
+
+          <div class="chat-panel" id="panel-ia" role="tabpanel" aria-labelledby="tab-ia" tabindex="0">
+            <p class="chat-meta"><span class="dot-live" id="ia-dot" aria-hidden="true"></span> <span id="ia-status">Assistente do app · disponível 24 horas</span></p>
+            <div class="chat-log" id="log-ia"></div>
+            <p class="sr-only" id="ia-live" aria-live="polite"></p>
+            <p class="notice" id="ia-entrar" hidden>Para conversar com a assistente, <button class="btn-inline" type="button" data-entrar="assistente">entre com seu e-mail</button>. Leva um minuto e não precisa de senha.</p>
+            <p class="notice" id="ia-unavailable" hidden>A assistente está sendo ligada pela equipe do app e logo volta a responder.</p>
+            <div class="chips-ask" id="ia-sugestoes">
+              <button class="chip-ask" type="button">Como funciona a tela de Emprego?</button>
+              <button class="chip-ask" type="button">Como salvo um item nos favoritos?</button>
+              <button class="chip-ask" type="button">Que documentos preciso para uma vaga PCD?</button>
+              <button class="chip-ask" type="button">O que tem na tela de Saúde?</button>
+            </div>
+            <div class="composer">
+              <label class="sr-only" for="ia-input">Escreva sua dúvida para a assistente</label>
+              <textarea id="ia-input" rows="1" maxlength="1000" placeholder="Escreva sua dúvida..."></textarea>
+              <button class="btn-send" type="button" id="ia-send" aria-label="Enviar pergunta">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l16-8-6 8 6 8z"/></svg>
+              </button>
+              <button class="btn-send stop" type="button" id="ia-stop" aria-label="Parar resposta" hidden>
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="7" y="7" width="10" height="10" rx="2"/></svg>
+              </button>
+            </div>
+            <p class="hint-sm">A assistente é uma IA (Claude, da Anthropic) e pode errar: confira informações importantes no link de cada item. Não conte dados pessoais nem de saúde para ela.</p>
+          </div>
+
+          <div class="chat-panel" id="panel-comm" role="tabpanel" aria-labelledby="tab-comm" tabindex="0" hidden>
             <div class="comm-topo">
               <p class="chat-meta"><span class="dot-live off" id="comm-dot" aria-hidden="true"></span> <span id="comm-online">Vendo quem está online...</span></p>
               <button class="btn-denunciar-geral" type="button" id="comm-denunciar" hidden>
@@ -927,8 +963,15 @@
             <div class="stat"><b id="st-desde">hoje</b><span>Usando desde</span></div>
           </div>
 
-          <p class="section-label">Seus favoritos</p>
+          <p class="section-label">Tirar dúvidas</p>
           <div class="items" style="margin-top:0">
+            <button class="item" type="button" id="btn-perfil-ia">
+              <span class="ic" style="background:var(--chat-bg); color:var(--chat)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="7" width="16" height="12" rx="3"/><path d="M12 3v4M8.5 12.5h.01M15.5 12.5h.01M9.5 16c1.6 1.1 3.4 1.1 5 0"/></svg></span>
+              <span>
+                <h4>Falar com a assistente do app</h4>
+                <p>Dúvidas sobre as telas, vagas, favoritos e acessibilidade, a qualquer hora</p>
+              </span>
+            </button>
             <button class="item" type="button" id="btn-perfil-fav">
               <span class="ic" style="background:var(--fav-bg); color:var(--fav)"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 17.3-5.4 3 1-6.1-4.4-4.2 6.1-.9L12 3.6l2.7 5.5 6.1.9-4.4 4.2 1 6.1z"/></svg></span>
               <span>

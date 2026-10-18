@@ -410,6 +410,7 @@
     desenharTudo();
     desenharBloqueados();
     atualizarComposer();
+    atualizarIA();
     if(ultimaComunidade) desenharComunidade(ultimaComunidade);
     if(PODE_MODERAR) carregarModeracao();
     if(PODE_MODERAR) carregarInscricoesAdmin();
@@ -457,7 +458,8 @@
     namoro: 'Entre para ver as pessoas da lista e aparecer nela.',
     aparecer: 'Entre para aparecer na lista de Namoro e conexões.',
     voluntario: 'Entre para enviar sua inscrição de voluntariado.',
-    denunciar: 'Entre para denunciar. Assim a moderação recebe a sua denúncia.'
+    denunciar: 'Entre para denunciar. Assim a moderação recebe a sua denúncia.',
+    assistente: 'Entre para conversar com a assistente do app.'
   };
 
   function abrirEntrar(motivo){
@@ -597,8 +599,12 @@
     var trocar = {substituir: telaAtual === 'scr-entrar'};
     if(motivo === 'comunidade'){
       go('scr-chat', trocar);
-      atualizarComposer();
+      aba('comm');
       focarDepois('comm-input');
+    }else if(motivo === 'assistente'){
+      go('scr-chat', trocar);
+      aba('ia');
+      focarDepois('ia-input');
     }else if(motivo === 'namoro'){
       go('scr-nam', trocar);
     }else if(motivo === 'aparecer'){
@@ -885,6 +891,7 @@
     if(quem) el.appendChild(texto('span', 'who', quem + (ts ? ' · ' + horaCurta(ts) : '')));
     var t = texto('span', 'txt', conteudo || '');
     el.appendChild(t);
+    el._txt = t;
     return el;
   }
   function aoFim(id){
@@ -892,6 +899,144 @@
     if(log) log.scrollTop = log.scrollHeight;
     var tela = $('scr-chat');
     if(tela && tela.classList.contains('active')) tela.scrollTop = tela.scrollHeight;
+  }
+
+  // ---------------------------------------------------------- assistente de IA
+  // A IA (Claude) roda na função "assistente" do Supabase: a chave fica lá, e
+  // as regras da assistente também. Só quem entrou na conta pode perguntar.
+  var turnos = [];
+  var ctlIA = null, iaOcupada = false, iaDesligada = false;
+  var BOAS_VINDAS = 'Oi! Sou a assistente do Inclua Santos. Posso explicar as telas do app, ajudar a entender as vagas para PCD em Santos, mostrar como salvar favoritos e ativar o texto grande. O que você quer saber?';
+
+  function atualizarIA(){
+    var semConta = dbResolvido && !UID;
+    var entrar = $('ia-entrar'); if(entrar) entrar.hidden = !semConta || !sb;
+    var av = $('ia-unavailable'); if(av) av.hidden = !iaDesligada;
+    var ok = !!sb && !iaDesligada;
+    var ponto = $('ia-dot'); if(ponto) ponto.classList.toggle('off', !ok || semConta);
+    var sug = $('ia-sugestoes'); if(sug) sug.hidden = !ok;
+    var inp = $('ia-input'); if(inp) inp.disabled = !ok;
+    var env = $('ia-send'); if(env && !iaOcupada) env.disabled = !ok;
+    var st = $('ia-status');
+    if(st && !iaOcupada) st.textContent = !sb ? 'Sem conexão com a assistente agora'
+      : (iaDesligada ? 'Assistente indisponível no momento'
+      : (semConta ? 'Entre com seu e-mail para conversar' : 'Assistente do app · disponível 24 horas'));
+  }
+
+  function erroIA(status, erro){
+    if(status === 401) return 'Sua sessão terminou. Entre de novo pelo Perfil para continuar a conversa.';
+    if(status === 429) return 'Você chegou ao limite de perguntas de hoje. Amanhã a assistente volta a responder.';
+    if(status === 503) return 'Muitas perguntas ao mesmo tempo. Espere um pouco e tente de novo.';
+    if(status === 404 || erro === 'configuracao') return 'A assistente está sendo ligada pela equipe do app e logo volta a responder.';
+    if(status === 0) return 'Sem conexão. Confira sua internet e tente de novo.';
+    return 'A resposta falhou no caminho. Tente enviar de novo em instantes.';
+  }
+
+  function iaOcupar(on){
+    iaOcupada = !!on;
+    var env = $('ia-send'), stop = $('ia-stop'), inp = $('ia-input');
+    var tinhaFoco = document.activeElement === env || document.activeElement === stop;
+    if(env){ env.hidden = !!on; env.disabled = !!on || iaDesligada; }
+    if(stop) stop.hidden = !on;
+    if(inp) inp.readOnly = !!on;
+    if(tinhaFoco){
+      var alvo = on ? stop : env;
+      if(alvo && !alvo.hidden && !alvo.disabled) alvo.focus();
+    }
+    var st = $('ia-status');
+    if(st && on) st.textContent = 'Pensando na resposta...';
+    if(!on) atualizarIA();
+  }
+
+  function historicoIA(){
+    var lista = turnos.slice(-12);
+    while(lista.length && lista[0].role !== 'user') lista.shift();
+    return lista;
+  }
+
+  function perguntarIA(txt){
+    txt = String(txt || '').trim().slice(0, 1000);
+    var inp = $('ia-input');
+    if(!txt || iaOcupada) return;
+    if(!sb){ toast('Sem conexão. Tente de novo em instantes'); return; }
+    if(!UID){
+      if(inp && !inp.value) inp.value = txt;
+      abrirEntrar('assistente');
+      return;
+    }
+    if(iaDesligada){ atualizarIA(); return; }
+    var log = $('log-ia');
+    if(!log) return;
+    if(inp){ inp.value = ''; inp.style.height = ''; }
+
+    log.appendChild(bolha('me', 'Você', txt, Date.now()));
+    turnos.push({role: 'user', content: txt});
+    if(turnos.length > 12) turnos = turnos.slice(-12);
+    var resposta = bolha('ai', 'Assistente', 'Pensando...', Date.now());
+    log.appendChild(resposta);
+    aoFim('log-ia');
+    iaOcupar(true);
+
+    var ctl = ctlIA = (window.AbortController ? new AbortController() : null);
+    sb.auth.getSession().then(function(r){
+      var sessao = r && r.data ? r.data.session : null;
+      if(!sessao) throw {status: 401};
+      return fetch(CFG.supabaseUrl + '/functions/v1/assistente', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'apikey': CFG.supabaseChave,
+          'Authorization': 'Bearer ' + sessao.access_token
+        },
+        body: JSON.stringify({mensagens: historicoIA()}),
+        signal: ctl ? ctl.signal : undefined
+      });
+    }).then(function(res){
+      return res.json().catch(function(){ return {}; }).then(function(corpo){
+        if(res.status !== 200 || typeof corpo.texto !== 'string') throw {status: res.status, erro: corpo.erro};
+        return corpo;
+      });
+    }).then(function(corpo){
+      var texto = limpar(corpo.texto, 4000);
+      resposta._txt.textContent = texto;
+      turnos.push({role: 'assistant', content: texto});
+      if(corpo.cortada) log.appendChild(bolha('sys', '', 'A resposta foi cortada no meio. Pergunte por partes.', 0));
+      var restam = Number(corpo.restam);
+      if(!isNaN(restam) && restam <= 3){
+        log.appendChild(bolha('sys', '', restam === 0 ? 'Esta foi a última pergunta de hoje. Amanhã a assistente volta a responder.'
+          : (restam === 1 ? 'Você ainda pode fazer 1 pergunta hoje.' : 'Você ainda pode fazer ' + restam + ' perguntas hoje.'), 0));
+      }
+      var live = $('ia-live'); if(live) live.textContent = 'Resposta da assistente: ' + texto;
+    }).catch(function(e){
+      turnos.pop();
+      if(e && e.name === 'AbortError'){
+        resposta._txt.textContent = 'Resposta interrompida por você.';
+        return;
+      }
+      var status = (e && typeof e.status === 'number') ? e.status : 0;
+      if(status === 404 || (e && e.erro === 'configuracao')) iaDesligada = true;
+      var msg = erroIA(status, e && e.erro);
+      resposta._txt.textContent = msg;
+      var live2 = $('ia-live'); if(live2) live2.textContent = msg;
+    }).then(function(){
+      if(ctlIA === ctl) ctlIA = null;
+      iaOcupar(false);
+      aoFim('log-ia');
+    });
+  }
+
+  // ---------------------------------------------------------- abas do chat
+  var abaChat = 'ia';
+  function aba(qual){
+    abaChat = qual === 'comm' ? 'comm' : 'ia';
+    var ehIA = abaChat === 'ia';
+    var tIA = $('tab-ia'), tC = $('tab-comm'), pIA = $('panel-ia'), pC = $('panel-comm');
+    if(tIA) tIA.setAttribute('aria-selected', ehIA ? 'true' : 'false');
+    if(tC)  tC.setAttribute('aria-selected', ehIA ? 'false' : 'true');
+    if(pIA) pIA.hidden = !ehIA;
+    if(pC)  pC.hidden = ehIA;
+    if(ehIA) atualizarIA();
+    else { iniciarComunidade(); atualizarComposer(); }
   }
 
   // ---------------------------------------------------------- moderação e denúncias
@@ -1542,7 +1687,7 @@
       var linha = document.createElement('button');
       linha.className = 'item';
       linha.type = 'button';
-      linha.addEventListener('click', function(){ go('scr-chat'); });
+      linha.addEventListener('click', function(){ go('scr-chat'); aba('comm'); });
 
       var ic = texto('span', 'ic', (p.nome.charAt(0) || '?').toUpperCase());
       ic.setAttribute('style', 'background:var(--c-nam-bg); color:var(--c-nam); font-weight:700');
@@ -1703,6 +1848,7 @@
       });
     }else if(seguir === 'comunidade'){
       go('scr-chat');
+      aba('comm');
       var inp = $('comm-input');
       if(inp && !inp.disabled) inp.focus();
       toast('Pronto! Agora você pode escrever');
@@ -2110,7 +2256,7 @@
     else if(id === 'scr-mod'){ carregarModeracao(); }
     else if(id === 'scr-ajudar'){ iniciarVoluntarios(); }
     else if(id === 'scr-insc'){ carregarInscricoesAdmin(); }
-    else if(id === 'scr-chat'){ iniciarSala(); iniciarComunidade(); atualizarComposer(); }
+    else if(id === 'scr-chat'){ iniciarSala(); aba(abaChat); }
   }
 
   // ---------------------------------------------------------- ligações de tela
@@ -2151,6 +2297,39 @@
       modoEscolher(false);
       if(cta) cta.focus();
     });
+
+    // abas do chat (setas do teclado trocam de aba)
+    var tIA = $('tab-ia'), tC = $('tab-comm');
+    if(tIA) tIA.addEventListener('click', function(){ aba('ia'); });
+    if(tC)  tC.addEventListener('click', function(){ aba('comm'); });
+    [tIA, tC].forEach(function(t){
+      if(!t) return;
+      t.addEventListener('keydown', function(e){
+        if(e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+        e.preventDefault();
+        var outro = (t === tIA) ? tC : tIA;
+        if(!outro) return;
+        aba(outro === tIA ? 'ia' : 'comm');
+        outro.focus();
+      });
+    });
+
+    // assistente
+    var iaInp = $('ia-input'), iaEnv = $('ia-send'), iaStop = $('ia-stop');
+    if(iaEnv) iaEnv.addEventListener('click', function(){ if(iaInp) perguntarIA(iaInp.value); });
+    if(iaStop) iaStop.addEventListener('click', function(){ if(ctlIA) ctlIA.abort(); });
+    if(iaInp){
+      iaInp.addEventListener('input', function(){ crescer(iaInp); });
+      iaInp.addEventListener('keydown', function(e){
+        if(e.key === 'Enter' && !e.shiftKey){ e.preventDefault(); perguntarIA(iaInp.value); }
+      });
+    }
+    var sug = $('ia-sugestoes');
+    if(sug) sug.querySelectorAll('.chip-ask').forEach(function(b){
+      b.addEventListener('click', function(){ perguntarIA(b.textContent); });
+    });
+    var bIA = $('btn-perfil-ia');
+    if(bIA) bIA.addEventListener('click', function(){ go('scr-chat'); aba('ia'); });
 
     var cInp = $('comm-input'), cEnv = $('comm-send');
     if(cEnv) cEnv.addEventListener('click', enviarComunidade);
@@ -2324,7 +2503,7 @@
     });
 
     document.addEventListener('visibilitychange', function(){
-      if(!document.hidden && telaAtual === 'scr-chat' && comunidadeIniciada) recarregarComunidade();
+      if(!document.hidden && telaAtual === 'scr-chat' && abaChat === 'comm' && comunidadeIniciada) recarregarComunidade();
     });
   }
 
@@ -2355,6 +2534,9 @@
     ligar();
     desenharTudo();
     rotuloSync(rotuloPadrao());
+    var logIA = $('log-ia');
+    if(logIA && !logIA.childNodes.length) logIA.appendChild(bolha('ai', 'Assistente', BOAS_VINDAS, 0));
+    atualizarIA();
 
     var pedida = (location.hash || '').slice(1);
     try{ history.replaceState({tela:'scr-home', n:0}, '', location.pathname + location.search); }catch(e){}
