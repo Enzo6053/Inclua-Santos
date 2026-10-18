@@ -17,6 +17,15 @@ Aplicativo para pessoas com deficiência de Santos e região: atividades, ONGs, 
 | `web/privacidade.html` | Política de privacidade. O app mostra este mesmo texto na tela Política. |
 | `supabase/schema.sql` | Banco de dados: tabelas, regras de acesso (RLS) e funções. |
 | `.github/workflows/pages.yml` | Publica o site no GitHub Pages. |
+| `android/` | App Android (`br.com.incluasantos.app`) que abre o site em tela cheia. |
+| `.github/workflows/android.yml` | Gera o APK (para testar) e o AAB (para a Play), assinados, a cada mudança no app. |
+
+## App Android
+
+- Pacote `br.com.incluasantos.app`, Android 8 em diante (minSdk 26), targetSdk 36.
+- O app abre https://enzo6053.github.io/Inclua-Santos/ em tela cheia. Links de fora do site, telefone e e-mail abrem nos apps do celular. O botão voltar anda pelas telas do site, e sem internet aparece uma tela com "Tentar de novo".
+- **APK e AAB:** cada execução do workflow "App Android" guarda os arquivos em **Actions > (a execução) > Artifacts**. Na `main`, o APK também fica em **Releases > Versão de teste**, para baixar direto no celular.
+- **Assinatura:** o workflow usa a chave de upload guardada em 4 segredos do repositório (**Settings > Secrets and variables > Actions**): `ANDROID_KEYSTORE_BASE64`, `ANDROID_KEYSTORE_PASSWORD`, `ANDROID_KEY_ALIAS` e `ANDROID_KEY_PASSWORD`. Sem eles, sai só um APK de teste (debug), que não serve para a Play. A chave nunca entra no repositório.
 
 ## Banco de dados (Supabase)
 

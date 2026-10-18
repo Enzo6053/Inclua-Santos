@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Inclua Santos</string>
+    <string name="sem_conexao_titulo">Sem conexão com a internet</string>
+    <string name="sem_conexao_texto">O Inclua Santos precisa de internet para abrir. Confira o Wi-Fi ou os dados móveis e tente de novo.</string>
+    <string name="tentar_de_novo">Tentar de novo</string>
+    <string name="nao_abriu">Não encontramos um app para abrir este link.</string>
+</resources>

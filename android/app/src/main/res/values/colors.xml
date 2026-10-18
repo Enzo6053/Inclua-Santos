@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="fundo">#F7FAF9</color>
+    <color name="texto">#182B33</color>
+    <color name="texto_suave">#5C6E75</color>
+    <color name="marca">#0E6E64</color>
+    <color name="icone_fundo">#0E6E64</color>
+</resources>
