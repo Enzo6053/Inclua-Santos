@@ -356,6 +356,7 @@
   function aplicarSessao(sessao){
     var uid = (sessao && sessao.user) ? sessao.user.id : null;
     EMAIL = (sessao && sessao.user && sessao.user.email) ? sessao.user.email : '';
+    if(uid && entrarEmail) guardarPedido('');
     if(dbResolvido && uid === UID){ desenharConta(); return contaPromessa; }
     var saiu = !!UID && !uid;
     UID = uid;
@@ -450,8 +451,45 @@
   }
 
   // ---------------------------------------------------------- entrar com código no e-mail
-  var entrarEmail = '', depoisDoLogin = null, telaAntesEntrar = 'scr-perfil';
+  var entrarEmail = '', enviadoEm = 0, depoisDoLogin = null, telaAntesEntrar = 'scr-perfil';
   var esperaAte = 0, esperaT = null;
+  // O pedido de código fica guardado no aparelho por uma hora: se o celular
+  // fechar o app enquanto a pessoa lê o e-mail, a tela do código volta.
+  var LS_ENTRAR = 'inclua-santos:entrar', VALIDADE_PEDIDO = 60 * 60 * 1000;
+
+  function guardarPedido(email){
+    entrarEmail = email || '';
+    enviadoEm = email ? Date.now() : 0;
+    try{
+      if(email) localStorage.setItem(LS_ENTRAR, JSON.stringify({email: email, em: enviadoEm}));
+      else localStorage.removeItem(LS_ENTRAR);
+    }catch(e){}
+  }
+
+  function lerPedido(){
+    try{
+      var p = JSON.parse(localStorage.getItem(LS_ENTRAR) || 'null');
+      var idade = p ? Date.now() - Number(p.em) : -1;
+      if(p && typeof p.email === 'string' && idade >= 0 && idade < VALIDADE_PEDIDO){
+        entrarEmail = p.email;
+        enviadoEm = Number(p.em);
+      }
+    }catch(e){}
+  }
+
+  function temPedido(){
+    return !!entrarEmail && Date.now() - enviadoEm < VALIDADE_PEDIDO;
+  }
+
+  // escolhe o passo da tela Entrar: e-mail, ou código se já pediu um
+  function prepararEntrar(){
+    if(!temPedido()){ passoEntrar('email'); return; }
+    passoEntrar('codigo');
+    var aviso = $('entrar-enviado');
+    if(aviso) aviso.textContent = 'Mandamos um código para ' + entrarEmail + '. Abra o seu e-mail e digite os números aqui.';
+    var faltam = Math.ceil((enviadoEm + 60000 - Date.now()) / 1000);
+    if(faltam > 0 && esperaAte <= Date.now()) iniciarEspera(faltam);
+  }
   var MOTIVOS_ENTRAR = {
     comunidade: 'Entre para escrever na Comunidade. Ler as mensagens continua livre.',
     namoro: 'Entre para ver as pessoas da lista e aparecer nela.',
@@ -471,9 +509,8 @@
       aviso.textContent = MOTIVOS_ENTRAR[motivo] || '';
       aviso.hidden = !MOTIVOS_ENTRAR[motivo];
     }
-    passoEntrar(entrarEmail && esperaAte > Date.now() ? 'codigo' : 'email');
     go('scr-entrar');
-    var campo = $(entrarEmail && esperaAte > Date.now() ? 'entrar-codigo' : 'entrar-email');
+    var campo = $(temPedido() ? 'entrar-codigo' : 'entrar-email');
     if(campo) setTimeout(function(){ campo.focus(); }, 50);
   }
 
@@ -509,7 +546,9 @@
       return 'Não deu para enviar o e-mail agora. Tente de novo mais tarde.';
     if(msg.indexOf('fetch') >= 0 || msg.indexOf('network') >= 0)
       return 'Sem conexão. Confira sua internet e tente de novo.';
-    return 'Não deu certo agora. Tente de novo em instantes.';
+    // o detalhe ajuda a equipe a achar o problema quando a pessoa avisa
+    var detalhe = limpar(String((e && (e.message || e.msg)) || ''), 120);
+    return 'Não deu certo agora. Tente de novo em instantes.' + (detalhe ? ' (Detalhe: ' + detalhe + ')' : '');
   }
 
   function iniciarEspera(segundos){
@@ -542,16 +581,13 @@
     if(botao) botao.disabled = true;
     sb.auth.signInWithOtp({email: email, options: {shouldCreateUser: true}}).then(function(r){
       if(r.error) throw r.error;
-      entrarEmail = email;
-      passoEntrar('codigo');
+      guardarPedido(email);
+      iniciarEspera(60);
+      prepararEntrar();
       var aviso = $('entrar-enviado');
-      if(aviso){
-        aviso.textContent = 'Mandamos um código para ' + email + '. Abra o seu e-mail e digite os números aqui.';
-        aviso.focus();
-      }
+      if(aviso) aviso.focus();
       var cod = $('entrar-codigo');
       if(cod){ cod.value = ''; setTimeout(function(){ cod.focus(); }, 50); }
-      iniciarEspera(60);
     }).catch(function(e){
       erroEntrar(idErro, mensagemErroLogin(e), campo);
     }).then(function(){
@@ -574,7 +610,7 @@
       if(r.error) throw r.error;
       var sessao = r.data ? r.data.session : null;
       if(!sessao) throw new Error('sem sessão');
-      entrarEmail = '';
+      guardarPedido('');
       esperaAte = 0;
       campo.value = '';
       return aplicarSessao(sessao).then(function(){
@@ -2111,6 +2147,7 @@
     else if(id === 'scr-ajudar'){ iniciarVoluntarios(); }
     else if(id === 'scr-insc'){ carregarInscricoesAdmin(); }
     else if(id === 'scr-chat'){ iniciarSala(); iniciarComunidade(); atualizarComposer(); }
+    else if(id === 'scr-entrar'){ prepararEntrar(); }
   }
 
   // ---------------------------------------------------------- ligações de tela
@@ -2223,8 +2260,11 @@
     });
     var bTrocar = $('btn-trocar-email');
     if(bTrocar) bTrocar.addEventListener('click', function(){
+      var anterior = entrarEmail;
+      guardarPedido('');
       passoEntrar('email');
-      var em = $('entrar-email'); if(em) em.focus();
+      var em = $('entrar-email');
+      if(em){ if(anterior && !em.value) em.value = anterior; em.focus(); }
     });
     var bEntrarVoltar = $('btn-entrar-voltar');
     if(bEntrarVoltar) bEntrarVoltar.addEventListener('click', function(){
@@ -2356,6 +2396,7 @@
     desenharTudo();
     rotuloSync(rotuloPadrao());
 
+    lerPedido();
     var pedida = (location.hash || '').slice(1);
     try{ history.replaceState({tela:'scr-home', n:0}, '', location.pathname + location.search); }catch(e){}
     if(pedida && /^scr-[a-z]+$/.test(pedida) && $(pedida) && pedida !== 'scr-home') go(pedida);
