@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://wfjssbmezfjyvngfvfmu.supabase.co wss://wfjssbmezfjyvngfvfmu.supabase.co; object-src 'none'; frame-src 'none'; base-uri 'self'; form-action 'self'">
 <title>Inclua Santos</title>
-<meta name="description" content="App gratuito que reúne atividades, ONGs, vagas de emprego, saúde, alimentação, cursos e conexões para pessoas com deficiência em Santos e região.">
+<meta name="description" content="App gratuito que reúne atividades, eventos, ONGs, vagas de emprego, alimentação, cursos e conexões para pessoas com deficiência em Santos e região.">
 <meta name="theme-color" content="#0E6E64">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
@@ -19,9 +19,9 @@
   <div class="intro">
     <span class="eyebrow">Santos e região</span>
     <h1>Inclua <em>Santos</em>. O app que conecta a pessoa com deficiência a tudo o que ela precisa</h1>
-    <p>Sete frentes de apoio em um só lugar, feitas para Santos e região: atividades, ONGs, emprego, saúde, alimentação, educação e relacionamentos — com acessibilidade como princípio de design, não como recurso extra.</p>
+    <p>Seis frentes de apoio e uma agenda de eventos em um só lugar, feitas para Santos e região: atividades, ONGs, emprego, alimentação, educação e relacionamentos — com acessibilidade como princípio de design, não como recurso extra.</p>
     <ul class="feature-list">
-      <li><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>7 categorias navegáveis, com vagas de emprego reais atualizadas toda semana</li>
+      <li><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>7 categorias navegáveis, com vagas de emprego reais e uma agenda de eventos acessíveis</li>
       <li><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Favoritos que ficam salvos e comunidade com denúncia, bloqueio e moderação</li>
       <li><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Entrada sem senha: um código chega no seu e-mail</li>
       <li><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Botão de acessibilidade: texto grande e alto contraste funcionam de verdade</li>
@@ -60,12 +60,22 @@
           </div>
 
           <div class="banner">
-            <strong>Outubro no Inclua Santos · Vaga nova e Cinema Azul</strong>
-            <span>A lista de Emprego foi conferida em 12/10 e ganhou uma vaga exclusiva PCD de Auxiliar Administrativo pela Maxi Recursos Humanos. Na tela Namoro e conexões, o Cinema Azul tem sessão adaptada no Cine Roxy em 27/10.</span>
+            <strong>Cidade Essencial segue em Santos até 29/11</strong>
+            <span>Próximas datas: roda de conversa em 06/11 e oficinas em 07/11, 14/11 e 28/11 (veja a tela Eventos). Na tela Emprego, as vagas para PCD em Santos foram conferidas hoje.</span>
           </div>
 
           <p class="section-label">O que você procura hoje?</p>
           <div class="grid">
+            <button class="cat wide" data-go="scr-eve">
+              <span class="ic" style="background:var(--c-eve-bg); color:var(--c-eve)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2.5"/><path d="M3 10h18M8 3v4M16 3v4"/><path d="M8 14h3v3H8z"/></svg>
+              </span>
+              <span class="txt">
+                <h3>Eventos</h3>
+                <p>Agenda acessível de Santos e região: cinema adaptado, praia e cultura</p>
+              </span>
+              <span class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg></span>
+            </button>
             <button class="cat" data-go="scr-ativ">
               <span class="ic" style="background:var(--c-ativ-bg); color:var(--c-ativ)">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="17" cy="5" r="2.4"/><path d="M4 21a7 7 0 0 1 9-9"/><circle cx="9" cy="17" r="4.6"/><path d="M11 9l4 1 3 4h3"/></svg>
@@ -87,13 +97,6 @@
               <h3>Emprego</h3>
               <p>Vagas afirmativas e empresas inclusivas</p>
             </button>
-            <button class="cat" data-go="scr-sau">
-              <span class="ic" style="background:var(--c-sau-bg); color:var(--c-sau)">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l2-5 3 9 2-4h7"/></svg>
-              </span>
-              <h3>Saúde</h3>
-              <p>Consultas, terapias e reabilitação</p>
-            </button>
             <button class="cat" data-go="scr-ali">
               <span class="ic" style="background:var(--c-ali-bg); color:var(--c-ali)">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20c-5 0-8-3-8-8 0-3 2-6 5-6 2 0 3 1 3 1s1-1 3-1c3 0 5 3 5 6 0 5-3 8-8 8z"/><path d="M12 7c0-2 1-3.5 3-4"/></svg>
@@ -101,12 +104,15 @@
               <h3>Alimentação</h3>
               <p>Nutrição, restaurantes acessíveis e cestas</p>
             </button>
-            <button class="cat" data-go="scr-edu">
+            <button class="cat wide" data-go="scr-edu">
               <span class="ic" style="background:var(--c-edu-bg); color:var(--c-edu)">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 4 10 5-10 5L2 9l10-5z"/><path d="M6 11.5V16c0 1.5 2.7 3 6 3s6-1.5 6-3v-4.5"/><path d="M22 9v5"/></svg>
               </span>
-              <h3>Faculdades e cursos</h3>
-              <p>Formação com acessibilidade e cotas</p>
+              <span class="txt">
+                <h3>Faculdades e cursos</h3>
+                <p>Formação com acessibilidade e cotas</p>
+              </span>
+              <span class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg></span>
             </button>
             <button class="cat wide" data-go="scr-nam">
               <span class="ic" style="background:var(--c-nam-bg); color:var(--c-nam)">
@@ -119,6 +125,61 @@
               <span class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg></span>
             </button>
           </div>
+        </section>
+
+        <!-- EVENTOS -->
+        <section class="screen" id="scr-eve" aria-label="Eventos">
+          <header class="detail-head" style="background:linear-gradient(130deg,#B04A15,#7A300C)">
+            <div class="toprow">
+              <button class="back" data-go="scr-home" aria-label="Voltar">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg>
+              </button>
+              <h2>Eventos</h2>
+            </div>
+            <p>Agenda de eventos acessíveis e inclusivos em Santos e região, com data, local e fonte.</p>
+            <div class="chips"><span class="chip">Santos e região</span><span class="chip">Acessíveis</span><span class="chip">Com fonte</span></div>
+          </header>
+
+          <p class="section-label">Próximos eventos</p>
+          <div class="items" style="margin-top:0" id="lista-eventos">
+            <!-- Evento colocado pelo dono do app (data-manual): não remover nem reescrever; ele some sozinho depois de data-ate. -->
+            <a data-fav data-fav-id="eve-cidade-essencial-2026" class="item com-imagem" href="https://www.instagram.com/p/DeNR5RhSC8U/" target="_blank" rel="noopener" data-ate="2026-11-29" data-manual="sim">
+              <img class="evento-img" src="img/cidade-essencial-cartaz.webp" width="593" height="744" loading="lazy" alt="Cartaz da Cidade Essencial: vem aí, de 31/10 a 29/11 de 2026, com música, teatro, poesia, oficinas, roda de conversa, exposição e lançamento de livro. Logos da Prefeitura de Santos e do TamTam.">
+              <span class="ic" style="background:var(--c-eve-bg); color:var(--c-eve)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2.5"/><path d="M3 10h18M8 3v4M16 3v4"/><path d="M8 14h3v3H8z"/></svg></span>
+              <span class="evento-texto">
+                <h4>Cidade Essencial</h4>
+                <p>Dia 31/10: Abertura<br>Dia 06/11: Roda de Conversa<br>Dias 07/11, 14/11 e 28/11: Oficinas<br>Dia 18/11: Peça de Teatro</p>
+                <p>Vem aí um mês de programações culturais com figuras conhecidas da música, teatro, poesia, comunicação, saúde, direito, contação de histórias, cinema, entre tantas outras linguagens que fazem a cidade viva e pulsante.</p>
+                <p>A Cidade Essencial é um convite ao encontro, à presença e à construção coletiva de sentidos para a vida em comunidade.</p>
+                <p>Fonte: Instagram</p>
+                <span class="tag" style="background:var(--c-eve-bg); color:var(--c-eve)">31/10 a 29/11</span>
+              </span>
+              <span class="ext" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9"/><path d="M19 13v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></span>
+            </a>
+            <a data-fav data-fav-id="eve-virada-inclusiva-2026" class="item" href="https://abcagora.com.br/2026/10/06/virada-inclusiva-inscricoes-artistas/" target="_blank" rel="noopener" data-ate="2026-12-06">
+              <span class="ic" style="background:var(--c-eve-bg); color:var(--c-eve)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.2 5.3L20 9l-4.4 3.8L17 18.5 12 15.6 7 18.5l1.4-5.7L4 9l5.8-.7z"/></svg></span>
+              <span>
+                <h4>Virada Inclusiva 2026 · Governo de SP</h4>
+                <p>De 28 de novembro a 6 de dezembro, em torno do Dia Internacional da Pessoa com Deficiência (3/12), com apresentações de artistas com deficiência nas cidades que aderirem. A programação de Santos ainda não foi divulgada · Fonte: ABC Agora, Primeira Edição e Agência SP</p>
+                <span class="tag" style="background:var(--c-eve-bg); color:var(--c-eve)">28/11 a 6/12</span>
+              </span>
+              <span class="ext" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9"/><path d="M19 13v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></span>
+            </a>
+            <a data-fav data-fav-id="eve-praticas-corporais-reboucas-sabados" class="item" href="https://www.santos.sp.gov.br/?q=noticia/santos-tem-vagas-para-atividades-adaptadas-e-inclusivas-no-reboucas" target="_blank" rel="noopener">
+              <span class="ic" style="background:var(--c-eve-bg); color:var(--c-eve)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="9" r="2.6"/><circle cx="16" cy="9" r="2.6"/><path d="M3 19c0-2.8 2.2-5 5-5M21 19c0-2.8-2.2-5-5-5"/></svg></span>
+              <span>
+                <h4>Práticas Corporais Inclusivas · Rebouças</h4>
+                <p>Todo sábado de manhã, no CER Rebouças (Ponta da Praia), para pessoas com deficiência de qualquer idade, com acompanhamento de profissionais. São 15 vagas; inscrição pelo WhatsApp da Seção de Esportes Adaptados, (13) 99163-7835. Confirme se ainda há vaga · Fonte: Prefeitura de Santos e Santa Portal</p>
+                <span class="tag" style="background:var(--c-eve-bg); color:var(--c-eve)">Todo sábado</span>
+              </span>
+              <span class="ext" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9"/><path d="M19 13v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></span>
+            </a>
+          </div>
+          <div class="empty" id="eventos-vazio" hidden>
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2.5"/><path d="M3 10h18M8 3v4M16 3v4"/><path d="M8 14h3v3H8z"/></svg>
+            Nenhum evento confirmado para os próximos dias.<br>A agenda é conferida toda semana.
+          </div>
+          <p class="hint-sm" id="eventos-stamp" data-conferido="2026-11-03" data-oque="Agenda de eventos" data-extra="Datas e horários mudam: confirme no link antes de sair de casa.">Agenda de eventos conferida em 03/11/2026. Datas e horários mudam: confirme no link antes de sair de casa.</p>
         </section>
 
         <!-- ATIVIDADES -->
@@ -380,54 +441,54 @@
                tempo de execucao pelo js/app.js, que reconhece "#lista-vagas a.item"
                por conta propria. -->
           <div class="items" style="margin-top:0" id="lista-vagas">
-            <a class="item" href="https://www.bne.com.br/vaga-de-emprego-na-area-administrativo-em-santos-sp/auxiliar-administrativo/6090955" target="_blank" rel="noopener">
-              <span class="ic" style="background:var(--c-emp-bg); color:var(--c-emp)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6M9 13h6M9 17h3"/></svg></span>
-              <span>
-                <h4>Auxiliar Administrativo (Exclusiva PCD) · Maxi Recursos Humanos</h4>
-                <p>Presencial · Santos-SP · Contrato efetivo · Salário a combinar · organização e arquivo de documentos, apoio administrativo e contas a pagar · Fonte: BNE</p>
-                <span class="tag" style="background:var(--c-emp-bg); color:var(--c-emp)">Exclusiva PCD</span>
-              </span>
-              <span class="ext" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9"/><path d="M19 13v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></span>
-            </a>
-            <a class="item" href="https://br.linkedin.com/jobs/view/auxiliar-administrativo-santos-at-della-volpe-transportes-4366071344" target="_blank" rel="noopener">
+            <a class="item" href="https://www.vagas.com.br/vagas/v2840928/consultor-a-comercial-externo-vaga-afirmativa-para-pessoas-com-deficiencia-pcd-santos-sp" target="_blank" rel="noopener">
               <span class="ic" style="background:var(--c-emp-bg); color:var(--c-emp)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></span>
               <span>
-                <h4>Auxiliar Administrativo (Exclusiva PCD) · Della Volpe Transportes</h4>
-                <p>Presencial · Santos-SP · VT, VA, cesta básica, assistência médica (90% empresa), PLR, parceria Sest Senat · Fonte: LinkedIn</p>
-                <span class="tag" style="background:var(--c-emp-bg); color:var(--c-emp)">Exclusiva PCD</span>
-              </span>
-              <span class="ext" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9"/><path d="M19 13v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></span>
-            </a>
-            <a class="item" href="https://esrh.selecty.com.br/vaga/1287/vaga-para-auxiliar-administrativo-rh-pcd-em-santos-sp" target="_blank" rel="noopener">
-              <span class="ic" style="background:var(--c-emp-bg); color:var(--c-emp)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7l9-4 9 4-9 4-9-4z"/><path d="M3 7v10l9 4 9-4V7"/><path d="M12 11v10"/></svg></span>
-              <span>
-                <h4>Auxiliar Administrativo RH (PCD) · Selecty</h4>
-                <p>Presencial · Santos-SP · recepção, controle de chaves e apoio administrativo · VR, VA, VT, Gympass · Fonte: Selecty</p>
-                <span class="tag" style="background:var(--c-emp-bg); color:var(--c-emp)">Exclusiva PCD</span>
-              </span>
-              <span class="ext" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9"/><path d="M19 13v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></span>
-            </a>
-            <a class="item" href="https://www.infojobs.com.br/vaga-de-assistente-logistica-pcd-pessoa-deficiencia-santossp-em-sao-paulo__10040420.aspx" target="_blank" rel="noopener">
-              <span class="ic" style="background:var(--c-emp-bg); color:var(--c-emp)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></span>
-              <span>
-                <h4>Assistente de Logística (PCD) · Manpower</h4>
-                <p>Presencial · Santos-SP · Salário R$ 2.500,00 · Assistência médica e odontológica, VT, VR, auxílio-creche · Fonte: Infojobs</p>
-                <span class="tag" style="background:var(--c-emp-bg); color:var(--c-emp)">Exclusiva PCD</span>
-              </span>
-              <span class="ext" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9"/><path d="M19 13v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></span>
-            </a>
-            <a class="item" href="https://www.catho.com.br/vagas/auxiliar-de-laboratorio-pcd-santos-sp/30686255/" target="_blank" rel="noopener">
-              <span class="ic" style="background:var(--c-emp-bg); color:var(--c-emp)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6M9 13h6M9 17h3"/></svg></span>
-              <span>
-                <h4>Auxiliar de Laboratório (PCD) · Manpower</h4>
-                <p>Presencial · Santos-SP · Salário a combinar · Fonte: Catho</p>
+                <h4>Consultor(a) Comercial Externo (PCD) · Stone</h4>
+                <p>Trabalho externo, com prospecção em campo · Santos-SP · CLT · salário a combinar · assistência médica e odontológica, auxílio academia, combustível, creche e farmácia, vale-alimentação e vale-refeição, seguro de vida e remuneração variável · publicada em 26/10 · Fonte: Vagas.com</p>
                 <span class="tag" style="background:var(--c-emp-bg); color:var(--c-emp)">Vaga afirmativa PCD</span>
+              </span>
+              <span class="ext" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9"/><path d="M19 13v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></span>
+            </a>
+            <a class="item" href="https://www.pcd.com.br/emprego-pcd/operador-de-supermercado-pcd-em-santos-sp/73152" target="_blank" rel="noopener">
+              <span class="ic" style="background:var(--c-emp-bg); color:var(--c-emp)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6M9 13h6M9 17h3"/></svg></span>
+              <span>
+                <h4>Operador(a) de Supermercado (PCD) · Mercadão Atacadista</h4>
+                <p>Presencial · Santos-SP · CLT · R$ 2.100,00 a R$ 2.300,00 · 5 vagas · aceita deficiência auditiva, autismo, intelectual e psicossocial · refeição no local e vale-transporte · anúncio válido até 10/11 · Fonte: PCD Online</p>
+                <span class="tag" style="background:var(--c-emp-bg); color:var(--c-emp)">Exclusiva PCD</span>
+              </span>
+              <span class="ext" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9"/><path d="M19 13v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></span>
+            </a>
+            <a class="item" href="https://www.pcd.com.br/emprego-pcd/auxiliar-de-servicos-gerais-colegio-novo-tempo-pcd-em-santos-sp/70784" target="_blank" rel="noopener">
+              <span class="ic" style="background:var(--c-emp-bg); color:var(--c-emp)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6M9 13h6M9 17h3"/></svg></span>
+              <span>
+                <h4>Auxiliar de Serviços Gerais (PCD) · Colégio Novo Tempo (Inspira Rede de Educadores)</h4>
+                <p>Presencial · Santos-SP · CLT · R$ 1.500,00 a R$ 1.800,00 · 2 vagas · ensino fundamental concluído · vale-alimentação, vale-transporte e plano de saúde · anúncio válido por menos de 60 dias · Fonte: PCD Online</p>
+                <span class="tag" style="background:var(--c-emp-bg); color:var(--c-emp)">Exclusiva PCD</span>
+              </span>
+              <span class="ext" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9"/><path d="M19 13v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></span>
+            </a>
+            <a class="item" href="https://www.pcd.com.br/emprego-pcd/promotor-de-vendas-e-atendimento-santos-sp-pcd-em-santos-sp/71438" target="_blank" rel="noopener">
+              <span class="ic" style="background:var(--c-emp-bg); color:var(--c-emp)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6M9 13h6M9 17h3"/></svg></span>
+              <span>
+                <h4>Promotor(a) de Vendas e Atendimento (PCD) · Bluefit</h4>
+                <p>Presencial · Santos-SP · CLT · R$ 1.800,00 · 1 vaga · ensino médio concluído · vale-refeição, vale-transporte e plano odontológico · anúncio válido por menos de 60 dias · Fonte: PCD Online</p>
+                <span class="tag" style="background:var(--c-emp-bg); color:var(--c-emp)">Exclusiva PCD</span>
+              </span>
+              <span class="ext" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9"/><path d="M19 13v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></span>
+            </a>
+            <a class="item" href="https://www.infojobs.com.br/vaga-de-coca-cola-femsa-ajudante-operacional-pcd-em-sao-paulo__11873653.aspx" target="_blank" rel="noopener">
+              <span class="ic" style="background:var(--c-emp-bg); color:var(--c-emp)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6M9 13h6M9 17h3"/></svg></span>
+              <span>
+                <h4>Ajudante Operacional (PCD) · Coca-Cola FEMSA (anúncio da Randstad)</h4>
+                <p>Presencial · Santos-SP · CLT, período integral · R$ 2.262,00 brutos por mês · 3 vagas · vale-alimentação, plano de saúde, plano odontológico, convênio farmácia e participação nos resultados · Fonte: Infojobs</p>
+                <span class="tag" style="background:var(--c-emp-bg); color:var(--c-emp)">Exclusiva PCD</span>
               </span>
               <span class="ext" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9"/><path d="M19 13v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></span>
             </a>
           </div>
 
-          <p class="hint-sm" id="vagas-stamp" data-conferido="2026-10-12" data-oque="Lista de vagas" data-extra="Uma vaga pode encerrar a qualquer momento: se o link não abrir, ela já foi preenchida.">Lista de vagas conferida em 12/10/2026. Uma vaga pode encerrar a qualquer momento: se o link não abrir, ela já foi preenchida.</p>
+          <p class="hint-sm" id="vagas-stamp" data-conferido="2026-11-03" data-oque="Lista de vagas" data-extra="Uma vaga pode encerrar a qualquer momento: se o link não abrir, ela já foi preenchida.">Lista de vagas conferida em 03/11/2026. Uma vaga pode encerrar a qualquer momento: se o link não abrir, ela já foi preenchida.</p>
 
           <p class="section-label">Vagas de agora</p>
           <div class="items" style="margin-top:0" id="lista-busca">
@@ -460,12 +521,12 @@
 
           <p class="section-label">Notícias e direitos</p>
           <div class="items" style="margin-top:0" id="lista-noticias">
-            <a data-fav data-fav-id="not-mutirao-215-vagas-out-2026" class="item" href="https://www.santos.sp.gov.br/?q=noticia%2Fproximo-mutirao-do-emprego-de-santos-oferece-215-vagas-cartas-para-entrevistas-devem-ser-retiradas-ate-segunda" target="_blank" rel="noopener">
-              <span class="ic" style="background:var(--c-emp-bg); color:var(--c-emp)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/><path d="M8 14h3v3H8z"/></svg></span>
+            <a data-fav data-fav-id="not-mutirao-laudos-sv" class="item" href="https://www.bs9.com.br/litoral/2026/10/30/sao-vicente-realiza-mutirao-gratuito-para-emissao-de-laudos-pcd.html" target="_blank" rel="noopener">
+              <span class="ic" style="background:var(--c-emp-bg); color:var(--c-emp)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span>
               <span>
-                <h4>Mutirão do Emprego com 215 vagas na terça (20/10)</h4>
-                <p>A partir das 9h no Resolve Aqui, Rua Amador Bueno, 249, Centro. Antes, retire a carta de encaminhamento no CPET, dentro do Poupatempo, até segunda (19/10), com carteira de trabalho, RG, CPF e comprovante de residência. As vagas são para todos, não só para PCD · Fonte: Prefeitura de Santos</p>
-                <span class="tag" style="background:var(--c-emp-bg); color:var(--c-emp)">20 de outubro</span>
+                <h4>São Vicente faz mutirão gratuito de laudos para PCD</h4>
+                <p>Dia 07/11, das 9h às 14h, no Sest Senat (Praça Adalberto Panzan, 151, Náutica III). É um mutirão para emitir laudos, não de vagas, e o laudo é o documento que as empresas pedem na vaga reservada para PCD. Inscrição até 04/11 em bit.ly/MutiraodeSV ou pelos telefones (13) 99130-2331 e (13) 99140-9528 · Fonte: BS9</p>
+                <span class="tag" style="background:var(--c-emp-bg); color:var(--c-emp)">07/11 · inscrição até 04/11</span>
               </span>
               <span class="ext" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9"/><path d="M19 13v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></span>
             </a>
@@ -473,8 +534,26 @@
               <span class="ic" style="background:var(--c-emp-bg); color:var(--c-emp)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span>
               <span>
                 <h4>Polo de Empregabilidade agora também atende em São Vicente</h4>
-                <p>Em outubro, o Polo de Empregabilidade Inclusiva passou a receber pessoas com deficiência a partir de 16 anos às terças e quintas, na Rua José Bonifácio, 404, 8º andar, sala 81, Centro de São Vicente. Faz entrevista, indica vagas que combinam com o seu perfil e acompanha a adaptação no trabalho. Só com hora marcada pelo WhatsApp (13) 99140-9528 · Fonte: BS9</p>
+                <p>Em outubro, o Polo de Empregabilidade Inclusiva passou a receber pessoas com deficiência a partir de 16 anos às terças e quintas, na Rua José Bonifácio, 404, 8º andar, sala 81, Centro de São Vicente. Faz entrevista, indica vagas que combinam com o seu perfil e acompanha a adaptação no trabalho. Só com hora marcada, por ligação ou WhatsApp: (13) 99140-9528 ou (13) 99130-2331 · Fonte: BS9</p>
                 <span class="tag" style="background:var(--c-emp-bg); color:var(--c-emp)">Novidade de outubro</span>
+              </span>
+              <span class="ext" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9"/><path d="M19 13v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></span>
+            </a>
+            <a data-fav data-fav-id="not-pasd-servidores-santos" class="item" href="https://www.cbnsantos.com.br/noticias/noticias/novo-programa-em-santos-garante-suporte-adaptacao-e-inclusao-para-servidores-publicos-com-deficiencia.html" target="_blank" rel="noopener">
+              <span class="ic" style="background:var(--c-emp-bg); color:var(--c-emp)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V9l8-6 8 6v12"/><path d="M4 21h16"/><rect x="9" y="13" width="6" height="8"/></svg></span>
+              <span>
+                <h4>Santos cria programa de apoio a servidores com deficiência</h4>
+                <p>Desde 21/09, o Programa de Acompanhamento aos Servidores com Deficiência faz visitas aos postos de trabalho da Prefeitura, avalia barreiras e pode exigir adaptações ou transferência de setor. Atende os 336 servidores com deficiência na ativa. Quem trabalha na Prefeitura de Santos pode procurar a Medicina do Trabalho da Secretaria de Finanças · Fonte: CBN Santos e A Tribuna</p>
+                <span class="tag" style="background:var(--c-emp-bg); color:var(--c-emp)">Divulgado em 22/09</span>
+              </span>
+              <span class="ext" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9"/><path d="M19 13v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></span>
+            </a>
+            <a data-fav data-fav-id="not-esporte-adaptado-santos" class="item" href="https://vtvnews.com.br/baixada-santista/santos-abre-vagas-para-esportes-adaptados-no-reboucas-e-zn/" target="_blank" rel="noopener">
+              <span class="ic" style="background:var(--c-emp-bg); color:var(--c-emp)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="9" r="2.6"/><circle cx="16" cy="9" r="2.6"/><path d="M3 19c0-2.8 2.2-5 5-5M21 19c0-2.8-2.2-5-5-5"/></svg></span>
+              <span>
+                <h4>Santos abre vagas gratuitas em esportes adaptados</h4>
+                <p>Basquete adaptado, musculação adaptada e atividades motoras no Rebouças (Ponta da Praia), natação adaptada no CER Zona Noroeste (Castelo) e práticas corporais inclusivas aos sábados. Cada turma tem poucas vagas e idade mínima própria. Inscrição pelo WhatsApp da Seção de Esportes Adaptados, (13) 99163-7835 · Fonte: VTV News e Santa Portal</p>
+                <span class="tag" style="background:var(--c-emp-bg); color:var(--c-emp)">Divulgado em 18/09</span>
               </span>
               <span class="ext" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9"/><path d="M19 13v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></span>
             </a>
@@ -499,8 +578,8 @@
             <a data-fav data-fav-id="not-cpet-carta" class="item" href="https://www.santos.sp.gov.br/?q=portal/centro-publico-de-emprego" target="_blank" rel="noopener">
               <span class="ic" style="background:var(--c-emp-bg); color:var(--c-emp)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V9l8-6 8 6v12"/><path d="M4 21h16"/><rect x="9" y="13" width="6" height="8"/></svg></span>
               <span>
-                <h4>Mutirão de emprego: a carta de encaminhamento sai no CPET</h4>
-                <p>Santos faz mutirões durante o ano e a entrada é a carta retirada antes no CPET, dentro do Poupatempo — Rua João Pessoa, 246, Centro (há entrada também pela Rua Amador Bueno, 249). Leve carteira de trabalho, RG, CPF e comprovante de residência. Atende de segunda a sexta, das 9h às 17h, e aos sábados, das 9h às 13h · Fonte: Prefeitura de Santos</p>
+                <h4>Emprego em Santos: o CPET fica dentro do Poupatempo</h4>
+                <p>O Centro Público de Emprego e Trabalho fica na Rua João Pessoa, 246, Centro, de segunda a sexta, das 9h às 17h, e aos sábados, das 9h às 13h, segundo a Prefeitura em 20/10/2026. Telefone geral da Prefeitura: (13) 3201-5000; confirme horário e agendamento antes de ir. Quando a cidade faz mutirão de emprego, a carta de encaminhamento sai lá: leve carteira de trabalho, RG, CPF e comprovante de residência · Fonte: Prefeitura de Santos</p>
                 <span class="tag" style="background:var(--c-emp-bg); color:var(--c-emp)">Serviço da cidade</span>
               </span>
               <span class="ext" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9"/><path d="M19 13v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></span>
@@ -509,7 +588,7 @@
               <span class="ic" style="background:var(--c-emp-bg); color:var(--c-emp)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="11" r="2"/><path d="M5.5 16c.7-1.5 1.8-2.2 3-2.2s2.3.7 3 2.2"/><path d="M14.5 10h4M14.5 13.5h4"/></svg></span>
               <span>
                 <h4>Carteira da Pessoa com Deficiência sai de graça em Santos</h4>
-                <p>Documento gratuito, válido por cinco anos. O pedido é no Poupatempo, Rua João Pessoa, 246, com agendamento pelo site do Poupatempo. Leve foto 3x4, RG, CPF, comprovante de residência em Santos e o laudo médico com o CID — o mesmo laudo que as empresas pedem na vaga reservada para PCD · Fonte: Prefeitura de Santos</p>
+                <p>Documento gratuito, válido por cinco anos, pronto em cerca de 30 dias. O pedido é presencial, via Poupatempo, e o agendamento da carteira é feito no setor de protocolo da Prefeitura. Leve certidão de nascimento ou casamento, RG, CPF, comprovante de endereço, foto 3x4, telefone de contato e o laudo médico com CID-10 (ou TEA) de especialista — o mesmo laudo que as empresas pedem na vaga reservada para PCD. A retirada é na Rua General Câmara, 5, 14º andar, Centro. A página da Prefeitura cita duas formas de agendar (Poupatempo e setor de protocolo): confirme antes de ir · Fonte: Prefeitura de Santos</p>
                 <span class="tag" style="background:var(--c-emp-bg); color:var(--c-emp)">Documento gratuito</span>
               </span>
               <span class="ext" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9"/><path d="M19 13v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></span>
@@ -523,15 +602,6 @@
               </span>
               <span class="ext" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9"/><path d="M19 13v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></span>
             </a>
-            <a data-fav data-fav-id="not-trampolim-cursos" class="item" href="https://www.trampolim.sp.gov.br" target="_blank" rel="noopener">
-              <span class="ic" style="background:var(--c-emp-bg); color:var(--c-emp)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 4 10 5-10 5L2 9l10-5z"/><path d="M6 11.5V16c0 1.5 2.7 3 6 3s6-1.5 6-3v-4.5"/><path d="M22 9v5"/></svg></span>
-              <span>
-                <h4>Curso gratuito do Estado dá prioridade a quem é PCD</h4>
-                <p>O portal Trampolim abre turmas gratuitas de qualificação várias vezes por ano, com inscrição pelo login gov.br. Quando há mais candidatos do que vagas, a pessoa com deficiência entra na frente no desempate. As turmas da Baixada nem sempre são em Santos — já houve em Praia Grande, Guarujá e São Vicente · Fonte: Governo do Estado de São Paulo</p>
-                <span class="tag" style="background:var(--c-emp-bg); color:var(--c-emp)">Curso gratuito</span>
-              </span>
-              <span class="ext" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9"/><path d="M19 13v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></span>
-            </a>
             <a data-fav data-fav-id="not-acordo-porto-2026" class="item" href="https://www.cbnsantos.com.br/noticias/noticias/acordo-amplia-capacitacao-de-empresas-portuarias-para-fortalecer-inclusao-de-pessoas-com-deficiencia-em-santos.html" target="_blank" rel="noopener">
               <span class="ic" style="background:var(--c-emp-bg); color:var(--c-emp)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h13v14H4z"/><path d="M17 8h3v9a2 2 0 0 1-2 2h-1z"/><path d="M7 9h7M7 12h7M7 15h4"/></svg></span>
               <span>
@@ -542,7 +612,7 @@
               <span class="ext" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9"/><path d="M19 13v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></span>
             </a>
           </div>
-          <p class="hint-sm" id="noticias-stamp" data-conferido="2026-10-17" data-oque="Notícias" data-extra="Serviços e direitos mudam: confirme no link antes de sair de casa.">Notícias conferidas em 17/10/2026. Serviços e direitos mudam: confirme no link antes de sair de casa.</p>
+          <p class="hint-sm" id="noticias-stamp" data-conferido="2026-11-03" data-oque="Notícias" data-extra="Serviços e direitos mudam: confirme no link antes de sair de casa.">Notícias conferidas em 03/11/2026. Serviços e direitos mudam: confirme no link antes de sair de casa.</p>
 
           <p class="section-label">Apoio ao candidato</p>
           <div class="items" style="margin-top:0">
@@ -555,74 +625,6 @@
               </span>
               <span class="ext" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9"/><path d="M19 13v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></span>
             </a>
-          </div>
-        </section>
-
-        <!-- SAÚDE -->
-        <section class="screen" id="scr-sau" aria-label="Saúde">
-          <header class="detail-head" style="background:linear-gradient(130deg,var(--c-sau),#8F2837)">
-            <div class="toprow">
-              <button class="back" data-go="scr-home" aria-label="Voltar">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg>
-              </button>
-              <h2>Saúde</h2>
-            </div>
-            <p>Escolha a especialidade e agende com profissionais que atendem PCD, presencial ou on-line.</p>
-            <div class="chips"><span class="chip">SUS</span><span class="chip">Convênios</span><span class="chip">Teleconsulta</span><span class="chip">Libras</span></div>
-          </header>
-
-          <p class="section-label">Especialidades</p>
-          <div class="grid">
-            <button data-fav data-fav-id="sau-psiquiatra" class="cat" data-toast="Agenda de Psiquiatria disponível na versão completa">
-              <span class="ic" style="background:var(--c-sau-bg); color:var(--c-sau)">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3a6 6 0 0 1 6 6c0 1.5-.5 2.7-1.3 3.7.2.7.3 1.5.3 2.3a6 6 0 0 1-6 6h-1v-3"/><path d="M14 3a6.5 6.5 0 0 0-8.8 8C4.4 12 4 13.2 4 14.5 4 17 6 19 8.5 19H12"/><path d="M10 9h4M12 7v4"/></svg>
-              </span>
-              <h3>Psiquiatra</h3>
-              <p>Consultas e acompanhamento de medicação</p>
-            </button>
-            <button data-fav data-fav-id="sau-psicologo" class="cat" data-toast="Agenda de Psicologia disponível na versão completa">
-              <span class="ic" style="background:var(--c-sau-bg); color:var(--c-sau)">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5c0 4.1-4 7.5-9 7.5-1 0-2-.1-2.9-.4L4 20l1.2-3.6C3.8 15.1 3 13.4 3 11.5 3 7.4 7 4 12 4s9 3.4 9 7.5z"/><path d="M8.5 11.5h.01M12 11.5h.01M15.5 11.5h.01"/></svg>
-              </span>
-              <h3>Psicólogo</h3>
-              <p>Terapia individual e em grupo, com valores sociais</p>
-            </button>
-            <button data-fav data-fav-id="sau-nutricionista" class="cat" data-toast="Agenda de Nutrição disponível na versão completa">
-              <span class="ic" style="background:var(--c-sau-bg); color:var(--c-sau)">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20c-5 0-8-3-8-8 0-3 2-6 5-6 2 0 3 1 3 1s1-1 3-1c3 0 5 3 5 6 0 5-3 8-8 8z"/><path d="M12 7c0-2 1-3.5 3-4"/></svg>
-              </span>
-              <h3>Nutricionista</h3>
-              <p>Planos alimentares adaptados às suas necessidades</p>
-            </button>
-            <button data-fav data-fav-id="sau-terapia-ocupacional" class="cat" data-toast="Agenda de Terapia Ocupacional disponível na versão completa">
-              <span class="ic" style="background:var(--c-sau-bg); color:var(--c-sau)">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 3h2a2 2 0 0 1 2 2v2h2a2 2 0 0 1 2 2v2h-2.2a2.3 2.3 0 0 0 0 4.6H19V21a2 2 0 0 1-2 2h-2v-2.2a2.3 2.3 0 0 0-4.6 0V23"/><path d="M11 3v2.2a2.3 2.3 0 0 1-4.6 0V3"/><path d="M3 9h2.2a2.3 2.3 0 0 1 0 4.6H3"/><path d="M3 9a2 2 0 0 1 2-2h4M3 13.6V19a2 2 0 0 0 2 2h5.4"/></svg>
-              </span>
-              <h3>Terapia ocupacional</h3>
-              <p>Autonomia nas atividades do dia a dia</p>
-            </button>
-            <button data-fav data-fav-id="sau-fisioterapeuta" class="cat wide" data-toast="Agenda de Fisioterapia disponível na versão completa">
-              <span class="ic" style="background:var(--c-sau-bg); color:var(--c-sau)">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l2-5 3 9 2-4h7"/></svg>
-              </span>
-              <span class="txt">
-                <h3>Fisioterapeuta</h3>
-                <p>Reabilitação, fortalecimento e primeira avaliação sem custo</p>
-              </span>
-              <span class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg></span>
-            </button>
-          </div>
-
-          <p class="section-label">Em destaque</p>
-          <div class="items" style="margin-top:0">
-            <button data-fav data-fav-id="sau-teleconsulta" class="item">
-              <span class="ic" style="background:var(--c-sau-bg); color:var(--c-sau)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2.5"/><path d="M9 8h6M9 12h6M9 16h4"/></svg></span>
-              <span>
-                <h4>Teleconsulta acessível</h4>
-                <p>Atendimento por vídeo com legenda automática e intérprete de Libras em todas as especialidades</p>
-                <span class="tag" style="background:var(--c-sau-bg); color:var(--c-sau)">On-line</span>
-              </span>
-            </button>
           </div>
         </section>
 
@@ -709,50 +711,10 @@
               </button>
               <h2>Namoro e conexões</h2>
             </div>
-            <p>Encontros reais em Santos e pessoas que usam o app e escolheram aparecer aqui.</p>
+            <p>Pessoas que usam o app e escolheram aparecer aqui.</p>
             <div class="chips"><span class="chip">Você escolhe aparecer</span><span class="chip">Só maiores de 18 anos</span><span class="chip">Sem telefone nem endereço</span></div>
           </header>
 
-          <p class="section-label">Encontros em Santos</p>
-          <div class="items" style="margin-top:0" id="nam-eventos-lista">
-            <a data-fav data-fav-id="nam-cinema-azul-roxy" class="item" href="https://www.juicysantos.com.br/noticias-da-regiao/roxy-cine-azul-sessao-adaptada-e-gratuita-na-baixada/" target="_blank" rel="noopener">
-              <span class="ic" style="background:var(--c-nam-bg); color:var(--c-nam)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="18" height="11" rx="2"/><path d="M3 9l1.5-4.5 16 3L21 9"/><path d="M8 5.4 9.5 8.4M13.5 6.3 15 9.3"/></svg></span>
-              <span>
-                <h4>Cinema Azul · sessão adaptada no Cine Roxy</h4>
-                <p>Última terça de cada mês (em outubro, dia 27), no Roxy do Gonzaga e no de São Vicente. Sessão com menos estímulos e liberdade para se mexer, para quem tem autismo ou deficiência intelectual. PCD com laudo não paga; acompanhante paga meia. Confira filme e horário no site do Roxy · Fonte: Juicy Santos</p>
-                <span class="tag" style="background:var(--c-nam-bg); color:var(--c-nam)">27 de outubro</span>
-              </span>
-              <span class="ext" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9"/><path d="M19 13v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></span>
-            </a>
-            <a data-fav data-fav-id="nam-esporte-adaptado-sespad" class="item" href="https://www.santos.sp.gov.br/?q=portal%2Fesportes-adaptados" target="_blank" rel="noopener">
-              <span class="ic" style="background:var(--c-nam-bg); color:var(--c-nam)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="17" cy="5" r="2.4"/><path d="M4 21a7 7 0 0 1 9-9"/><circle cx="9" cy="17" r="4.6"/><path d="M11 9l4 1 3 4h3"/></svg></span>
-              <span>
-                <h4>Aulas de esporte adaptado da Prefeitura</h4>
-                <p>A Seção de Esportes Adaptados tem aulas gratuitas para pessoas com deficiência, como natação, basquete adaptado e a nova modalidade de tênis em cadeira de rodas, no Rebouças e na Zona Noroeste. Inscrição presencial, com laudo médico recente · Fonte: Prefeitura de Santos</p>
-                <span class="tag" style="background:var(--c-nam-bg); color:var(--c-nam)">Gratuito</span>
-              </span>
-              <span class="ext" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9"/><path d="M19 13v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></span>
-            </a>
-            <a data-fav data-fav-id="nam-praia-acessivel" class="item" href="https://www.santos.sp.gov.br/?q=servico/programa-praia-acessivel" target="_blank" rel="noopener">
-              <span class="ic" style="background:var(--c-nam-bg); color:var(--c-nam)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 18c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/><circle cx="17" cy="6" r="3"/><path d="M3 14c3-6 8-8 12-7"/></svg></span>
-              <span>
-                <h4>Praia Acessível · tenda do Canal 3</h4>
-                <p>Sábados, domingos e feriados prolongados, 9h às 15h · banho de mar assistido em cadeira anfíbia, esporte adaptado e lazer na areia. Desde março de 2026, a Lei Municipal 4.729 garante acessibilidade permanente nas praias de Santos · Fonte: Prefeitura de Santos</p>
-                <span class="tag" style="background:var(--c-nam-bg); color:var(--c-nam)">Todo fim de semana</span>
-              </span>
-              <span class="ext" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9"/><path d="M19 13v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></span>
-            </a>
-            <a data-fav data-fav-id="nam-condefi" class="item" href="https://www.santos.sp.gov.br/?q=content/condefi-conselho-dos-direitos-das-pessoas-com-deficiencia" target="_blank" rel="noopener">
-              <span class="ic" style="background:var(--c-nam-bg); color:var(--c-nam)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="9" r="2.6"/><circle cx="16" cy="9" r="2.6"/><path d="M3 19c0-2.8 2.2-5 5-5M21 19c0-2.8-2.2-5-5-5"/></svg></span>
-              <span>
-                <h4>CONDEFI · reuniões abertas do conselho</h4>
-                <p>Assembleias abertas à comunidade · a próxima data sai na página oficial · Fonte: Prefeitura de Santos</p>
-                <span class="tag" style="background:var(--c-nam-bg); color:var(--c-nam)">Participação aberta</span>
-              </span>
-              <span class="ext" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9"/><path d="M19 13v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></span>
-            </a>
-          </div>
-          <p class="hint-sm" id="nam-stamp">Programação conferida em 12/10/2026 no site da Prefeitura de Santos e na imprensa local. Datas mudam: confirme no link antes de sair de casa.</p>
 
           <p class="section-label" id="nam-pessoas-rotulo" tabindex="-1">Pessoas que escolheram aparecer</p>
           <div class="items" style="margin-top:0" id="nam-pessoas"></div>
@@ -766,7 +728,7 @@
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.5-9A5.2 5.2 0 0 1 12 7a5.2 5.2 0 0 1 9.5 5c-2 4.4-9.5 9-9.5 9z"/></svg>
             Quero aparecer nesta lista
           </button>
-          <p class="hint-sm" style="margin-top:12px">Aqui ninguém publica telefone, endereço nem documento. A conversa acontece na Comunidade, na aba Chat. Se um perfil incomodar você, toque em <strong>Denunciar perfil</strong>: ele some da sua lista na hora e a moderação analisa. Na denúncia, você também pode bloquear a pessoa.</p>
+          <p class="hint-sm" style="margin-top:12px">Aqui ninguém publica telefone, endereço nem documento. A conversa acontece na Comunidade. Se um perfil incomodar você, toque em <strong>Denunciar perfil</strong>: ele some da sua lista na hora e a moderação analisa. Na denúncia, você também pode bloquear a pessoa.</p>
         </section>
 
         <!-- FAVORITOS -->
@@ -787,7 +749,7 @@
             Bote seus favoritos
           </button>
           <p class="notice" id="fav-mode-note" hidden>
-            Modo favoritar ligado: toque na <strong>estrela</strong> de qualquer atividade, ONG, vaga, serviço de saúde, restaurante ou curso.
+            Modo favoritar ligado: toque na <strong>estrela</strong> de qualquer atividade, ONG, vaga, evento, restaurante ou curso.
             <button class="btn-inline" type="button" id="btn-fav-mode-off">Desligar</button>
           </p>
 
@@ -800,17 +762,17 @@
           </div>
         </section>
 
-        <!-- CHAT (Comunidade) -->
-        <section class="screen" id="scr-chat" aria-label="Chat">
+        <!-- COMUNIDADE -->
+        <section class="screen" id="scr-chat" aria-label="Comunidade">
           <header class="detail-head" style="background:linear-gradient(130deg,#2E6F8E,#173D52)">
             <div class="toprow">
               <button class="back" data-go="scr-home" aria-label="Voltar">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg>
               </button>
-              <h2>Chat</h2>
+              <h2>Comunidade</h2>
             </div>
-            <p>Converse com outras pessoas da comunidade de Santos e região.</p>
-            <div class="chips"><span class="chip">Comunidade PCD</span><span class="chip">Com moderação</span></div>
+            <p>Converse com outras pessoas da comunidade do Inclua Santos, com respeito e segurança.</p>
+            <div class="chips"><span class="chip">Comunidade PCD</span><span class="chip">Denúncia em 1 toque</span></div>
           </header>
 
           <div class="chat-panel" id="panel-comm">
@@ -1204,7 +1166,7 @@
         </button>
         <button class="navbtn" id="nav-chat" data-go="scr-chat">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5c0 4.1-4 7.5-9 7.5-1 0-2-.1-2.9-.4L4 20l1.2-3.6C3.8 15.1 3 13.4 3 11.5 3 7.4 7 4 12 4s9 3.4 9 7.5z"/></svg>
-          Chat
+          Comunidade
         </button>
         <button class="navbtn" id="nav-perfil" data-go="scr-perfil">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.9 3.1-7 7-7s7 3.1 7 7"/></svg>

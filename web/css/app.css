@@ -20,6 +20,7 @@
     --c-ali:#4C8A2F;    --c-ali-bg:#E4F0DC;
     --c-edu:#A96A00;    --c-edu-bg:#F7EBD4;
     --c-nam:#C2447E;    --c-nam-bg:#F9E2EE;
+    --c-eve:#B04A15;    --c-eve-bg:#FBE7DA;
 
     --fav:#17803D;      --fav-bg:#DCF2E4;      --fav-deep:#0B4F26;
     --chat:#2E6F8E;     --chat-bg:#DFEAF1;
@@ -45,6 +46,7 @@
       --c-ali:#8BC46A;  --c-ali-bg:#2B3D26;
       --c-edu:#E0A94F;  --c-edu-bg:#43371F;
       --c-nam:#E883B4;  --c-nam-bg:#452B3B;
+      --c-eve:#F0A06E;  --c-eve-bg:#45301F;
       --fav:#48B872;    --fav-bg:#1C3A28;      --fav-deep:#0E5C2E;
       --chat:#74AECD;   --chat-bg:#1E3746;
       --fav-solid:#1E8049; --fav-on:#FFFFFF;
@@ -59,6 +61,7 @@
     --c-emp:#1F5FA8; --c-emp-bg:#E0EAF6; --c-sau:#C23A4B; --c-sau-bg:#F9E3E6;
     --c-ali:#4C8A2F; --c-ali-bg:#E4F0DC; --c-edu:#A96A00; --c-edu-bg:#F7EBD4;
     --c-nam:#C2447E; --c-nam-bg:#F9E2EE;
+    --c-eve:#B04A15; --c-eve-bg:#FBE7DA;
     --fav:#17803D;      --fav-bg:#DCF2E4;      --fav-deep:#0B4F26;
     --chat:#2E6F8E;     --chat-bg:#DFEAF1;
     --fav-solid:#17803D; --fav-on:#FFFFFF;
@@ -72,6 +75,7 @@
     --c-emp:#6FA8E0; --c-emp-bg:#22374E; --c-sau:#E8798A; --c-sau-bg:#452B33;
     --c-ali:#8BC46A; --c-ali-bg:#2B3D26; --c-edu:#E0A94F; --c-edu-bg:#43371F;
     --c-nam:#E883B4; --c-nam-bg:#452B3B;
+    --c-eve:#F0A06E; --c-eve-bg:#45301F;
       --fav:#48B872;    --fav-bg:#1C3A28;      --fav-deep:#0E5C2E;
       --chat:#74AECD;   --chat-bg:#1E3746;
       --fav-solid:#1E8049; --fav-on:#FFFFFF;
@@ -291,7 +295,7 @@
 
   /* ---------- Bottom nav ---------- */
   .navbar{
-    position:absolute; left:0; right:0; bottom:0;
+    position:absolute; left:0; right:0; bottom:0; z-index:3;
     background:var(--app-surface);
     border-top:1px solid var(--app-line);
     display:flex;
@@ -401,7 +405,7 @@
     text-align:center; padding:28px 18px; color:var(--app-muted);
     font-size:13.5px; line-height:1.6;
   }
-  .empty svg{width:34px; height:34px; opacity:.55; margin-bottom:10px}
+  .empty svg{display:block; width:34px; height:34px; opacity:.55; margin:0 auto 10px}
   .item .state{
     margin-left:auto; align-self:center; flex:none;
     font-size:11px; font-weight:700; letter-spacing:.06em;
@@ -744,6 +748,18 @@
   .screen-wrap.contrast .ong-opcao, .screen-wrap.contrast .check-chip{border-width:2px}
   .screen-wrap.contrast .ong-opcao:has(input:checked),
   .screen-wrap.contrast .check-chip:has(input:checked){background:#FFFFFF; border-color:#000000; border-width:3px}
+
+  /* ---------- evento com cartaz ---------- */
+  .item.com-imagem{flex-wrap:wrap}
+  .item .evento-img{
+    order:-1; flex:none; display:block;
+    width:100%; height:auto; border-radius:12px;
+    background:var(--app-line); box-shadow:0 0 0 1px var(--app-line);
+  }
+  .fav-wrap.row > .item.com-imagem .evento-img{width:calc(100% + 44px); max-width:none; margin-right:-44px}
+  .fav-wrap:has(> .item.com-imagem) > .fav-star{top:22px; right:22px; box-shadow:0 2px 8px rgba(0,0,0,.35)}
+  .item .evento-texto{flex:1 1 0; min-width:0}
+  .item .evento-texto p + p{margin-top:6px}
 
   /* ---------- tela cheia: celular e app Android ---------- */
   @media (max-width: 699px){
