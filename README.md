@@ -1,6 +1,6 @@
 # Inclua Santos
 
-Aplicativo para pessoas com deficiência de Santos e região: atividades, ONGs, vagas de emprego, saúde, alimentação, cursos, Comunidade e Namoro e conexões.
+Aplicativo para pessoas com deficiência de Santos e região: atividades, eventos, ONGs, vagas de emprego, alimentação, cursos, Comunidade e Namoro e conexões.
 
 - **Site:** https://enzo6053.github.io/Inclua-Santos/
 - **Política de privacidade:** https://enzo6053.github.io/Inclua-Santos/privacidade.html
@@ -48,7 +48,7 @@ As listas ficam em `web/index.html`, com os mesmos IDs do protótipo:
 
 - `#lista-vagas` e `#vagas-stamp` (Emprego)
 - `#lista-noticias` e `#noticias-stamp` (Notícias e direitos)
-- `#nam-eventos-lista` e `#nam-stamp` (Encontros em Santos)
+- `#lista-eventos` e `#eventos-stamp` (Eventos). Cada evento com data de fim leva `data-ate="AAAA-MM-DD"` e some sozinho no dia seguinte. Evento com `data-manual="sim"` foi colocado pelo dono do app: não remover nem reescrever.
 - o `.banner` da tela inicial
 
 A estrela de favoritar é colocada sozinha pelo `js/app.js`. Um push na `main` publica o site, e o app Android mostra a novidade sem precisar de versão nova na Play.

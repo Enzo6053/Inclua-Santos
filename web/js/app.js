@@ -12,10 +12,10 @@
     'scr-ativ': {nome:'Atividades',          cor:'ativ'},
     'scr-ong':  {nome:'ONGs e apoio',        cor:'ong'},
     'scr-emp':  {nome:'Emprego',             cor:'emp'},
-    'scr-sau':  {nome:'Saúde',               cor:'sau'},
     'scr-ali':  {nome:'Alimentação',         cor:'ali'},
     'scr-edu':  {nome:'Faculdades e cursos', cor:'edu'},
-    'scr-nam':  {nome:'Namoro e conexões',   cor:'nam'}
+    'scr-nam':  {nome:'Namoro e conexões',   cor:'nam'},
+    'scr-eve':  {nome:'Eventos',             cor:'eve'}
   };
   var NAV_DE_TELA = {'scr-home':'nav-home', 'scr-fav':'nav-fav', 'scr-chat':'nav-chat', 'scr-perfil':'nav-perfil',
                      'scr-priv':'nav-perfil', 'scr-mod':'nav-perfil', 'scr-insc':'nav-perfil', 'scr-entrar':'nav-perfil'};
@@ -25,7 +25,7 @@
   var ICO_CHEV = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg>';
   var ICO_BANDEIRA = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21V4"/><path d="M5 4h12l-2.5 4.5L17 13H5"/></svg>';
   var ICO_BLOQUEIO = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m5.6 5.6 12.8 12.8"/></svg>';
-  var CORES_OK = {ativ:1, ong:1, emp:1, sau:1, ali:1, edu:1, nam:1};
+  var CORES_OK = {ativ:1, ong:1, emp:1, ali:1, edu:1, nam:1, eve:1};
 
   var S = {chave:'', nome:'', sobre:'', aparecer:false, favoritos:{}, sessoes:0, mensagens:0, desde:0, visto:0,
            big:false, contraste:false, privacidade:0, maiorIdade:0};
@@ -61,6 +61,7 @@
     if(!f || typeof f !== 'object') return null;
     var titulo = limpar(f.titulo, 160).replace(/\s+/g, ' ').trim();
     if(!titulo) return null;
+    if(favoritoOrfao(f)) return null;
     var tela = limpar(f.tela, 20);
     return {
       id: limpar(f.id, 120),
@@ -71,6 +72,17 @@
       tela: /^scr-[a-z]+$/.test(tela) ? tela : '',
       em: Number(f.em) || 0
     };
+  }
+  // Favorito sem link cuja tela saiu do app (como os da antiga tela Saúde) não abre nada.
+  function favoritoOrfao(f){
+    var tela = limpar(f.tela, 20);
+    return !urlSegura(f.url) && !(/^scr-[a-z]+$/.test(tela) && $(tela));
+  }
+  function tirarFavoritosOrfaos(){
+    Object.keys(S.favoritos).forEach(function(id){
+      var f = S.favoritos[id];
+      if(f && typeof f === 'object' && favoritoOrfao(f)) delete S.favoritos[id];
+    });
   }
   function hash36(s){
     var h = 0x811c9dc5;
@@ -872,11 +884,28 @@
         txt = oque + ' conferida em ' + data + ' — já faz ' + dias + ' dias, então algo aqui pode ter mudado.';
       }else{
         txt = oque + ' foi conferida em ' + data + ', há ' + dias + ' dias: provavelmente está desatualizada. '
-            + 'Use os links de "Vagas de agora" para ver o que está aberto hoje.';
+            + (el.id === 'vagas-stamp' ? 'Use os links de "Vagas de agora" para ver o que está aberto hoje.'
+                                       : 'Confirme no link antes de usar.');
       }
       el.textContent = extra ? (txt + ' ' + extra) : txt;
       el.classList.toggle('velho', dias > 24);
     });
+  }
+
+  // Evento com data-ate="AAAA-MM-DD" sai da lista no dia seguinte, sem esperar a rotina semanal.
+  function esconderEventosPassados(){
+    var hoje = new Date();
+    hoje.setHours(0, 0, 0, 0);
+    var visiveis = 0;
+    document.querySelectorAll('#lista-eventos a.item').forEach(function(el){
+      var m = String(el.getAttribute('data-ate') || '').match(/^(\d{4})-(\d{2})-(\d{2})$/);
+      var passou = !!m && new Date(Number(m[1]), Number(m[2]) - 1, Number(m[3])) < hoje;
+      var caixa = (el.parentElement && el.parentElement.classList.contains('fav-wrap')) ? el.parentElement : el;
+      caixa.hidden = passou;
+      if(!passou) visiveis++;
+    });
+    var vazio = $('eventos-vazio');
+    if(vazio) vazio.hidden = visiveis > 0;
   }
 
   // ---------------------------------------------------------- contadores / perfil
@@ -2142,6 +2171,7 @@
     if(id === 'scr-fav'){ desenharFavoritos(); atualizarContadores(); }
     else if(id === 'scr-perfil'){ desenharPerfil(); desenharConta(); desenharBloqueados(); }
     else if(id === 'scr-nam'){ iniciarSala(); carregarPessoas(); }
+    else if(id === 'scr-eve'){ esconderEventosPassados(); }
     else if(id === 'scr-priv'){ carregarPolitica(); atualizarPrivacidade(); }
     else if(id === 'scr-mod'){ carregarModeracao(); }
     else if(id === 'scr-ajudar'){ iniciarVoluntarios(); }
@@ -2371,6 +2401,7 @@
   // ---------------------------------------------------------- início
   function iniciar(){
     lerLocal();
+    tirarFavoritosOrfaos();
     if(!S.chave) S.chave = novaChave();
     if(!S.desde) S.desde = Date.now();
     S.sessoes = (Number(S.sessoes) || 0) + 1;
@@ -2392,6 +2423,7 @@
 
     selosDeData();
     marcarEstrelas();
+    esconderEventosPassados();
     ligar();
     desenharTudo();
     rotuloSync(rotuloPadrao());
